@@ -27,6 +27,8 @@
 
 \author{ Jeremy VanDerWal \email{jjvanderwal@gmail.com} }
 
+\seealso{ \code{\link{interp2grid}} } 
+
 \examples{
 
 #create some data
