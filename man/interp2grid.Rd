@@ -11,7 +11,7 @@
 \usage{ interp2grid(mat,xout,yout,xin=NULL,yin=NULL,type=2) }
 
 \arguments{
-	\item{mat}{a matrix of data that can be a raster matrix of class 'asc' (adehabitat package), 'RasterLayer' (raster package) or 'SpatialGridDataFrame' (sp package)\n
+	\item{mat}{a matrix of data that can be a raster matrix of class 'asc' (adehabitat package), 'RasterLayer' (raster package) or 'SpatialGridDataFrame' (sp package)\cr
 	NA values are not permitted.. data must be complete.}
 	\item{xout}{a vector of data representing x coordinates of the output grid. Resulting grid must have square cell sizes if mat is of class 'asc', 'RasterLayer' or 'SpatialGridDataFrame'.}
 	\item{yout}{a vector of data representing x coordinates of the output grid. Resulting grid must have square cell sizes if mat is of class 'asc', 'RasterLayer' or 'SpatialGridDataFrame'.}

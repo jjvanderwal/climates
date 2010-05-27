@@ -74,7 +74,7 @@ function(tmin=NULL, tmax=NULL, prec=NULL, tmean=NULL, vois=1:19, cov=FALSE, t.as
 	#isothermality (2/7) -- 3
 	if (any(vois == 3)) { out[,3] = out[,2] / out[,7] }
 	#annual precipitation -- 12
-	if (any(vois == 12)) { out[,12] == rowSums(prec,na.rm=T)
+	if (any(vois == 12)) { out[,12] == rowSums(prec,na.rm=T) }
 	#precipitation of the wettest period -- 13
 	if (any(vois == 13)) { out[,13] == apply(prec,1,function(x) { return(max(x,na.rm=T)) }) }
 	#precipitation of the driest period -- 14

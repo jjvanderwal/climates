@@ -8,7 +8,7 @@
 	These measures are described below but include annual and quarterly summaries of temperature and precipitation.
 }
 
-\usage{ bioclim(tmin=NULL, tmax=NULL, prec=NULL, tmean=NULL, vois=1:19, cov=FALSE,\cr
+\usage{ bioclim(tmin=NULL, tmax=NULL, prec=NULL, tmean=NULL, vois=1:19, cov=FALSE,
  t.as.int=TRUE, period="month") }
 
 \arguments{
