@@ -26,7 +26,11 @@
 	The variables created here are based primarily on BIOCLIM variables created by ANUCLIM \url{http://fennerschool.anu.edu.au/publications/software/anuclim.php}. Below is a description of the variables and how they are calculated from the ANUCLIM website, with Temperature Seasonality description modified for the different method Worldclim uses.\cr\cr
 	The descriptions below assume you are using a weekly time step. If you are using months, the monthly values rather than the weekly values will be used when calculating these parameters.\cr\cr
 	The quarterly parameters are not aligned to any calendar quarters. BIOCLIM's definition of a quarter is any 13 consecutive weeks, (or any consecutive 3 months if running with a monthly time step). For example, the driest quarter will be the 13 consecutive weeks that are drier than any other set of 13 consecutive weeks.\cr\cr
-
+	\enumerate{
+		\item A database consists of one or more records, each with one or more named fields.
+		\item Regular lines start with a non-whitespace character.
+		\item Records are separated by one or more empty lines.
+    }
 	\item{1. Annual Mean Temperature}{The mean of all the weekly mean temperatures. Each weekly mean temperature is the mean of that week's maximum and minimum temperature.}
 	\item{2. Mean Diurnal Range(Mean(period max-min))}{The mean of all the weekly diurnal temperature ranges. Each weekly diurnal range is the difference between that week's maximum and minimum temperature.}
 	\item{3. Isothermality 2/7}{The mean diurnal range (parameter 2) divided by the Annual Temperature Range (parameter 7).}
