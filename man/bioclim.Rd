@@ -31,6 +31,14 @@
 		\item Regular lines start with a non-whitespace character.
 		\item Records are separated by one or more empty lines.
     }
+	\tabular{rlll}{
+		[,1] \tab Ozone   \tab numeric \tab Ozone (ppb)\cr
+		[,2] \tab Solar.R \tab numeric \tab Solar R (lang)\cr
+		[,3] \tab Wind    \tab numeric \tab Wind (mph)\cr
+		[,4] \tab Temp    \tab numeric \tab Temperature (degrees F)\cr
+		[,5] \tab Month   \tab numeric \tab Month (1--12)\cr
+		[,6] \tab Day     \tab numeric \tab Day of month (1--31)
+	}
 	\item{1. Annual Mean Temperature}{The mean of all the weekly mean temperatures. Each weekly mean temperature is the mean of that week's maximum and minimum temperature.}
 	\item{2. Mean Diurnal Range(Mean(period max-min))}{The mean of all the weekly diurnal temperature ranges. Each weekly diurnal range is the difference between that week's maximum and minimum temperature.}
 	\item{3. Isothermality 2/7}{The mean diurnal range (parameter 2) divided by the Annual Temperature Range (parameter 7).}
