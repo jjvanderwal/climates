@@ -1,1 +1,17 @@
 * text=auto !eol
+/DESCRIPTION -text
+/NAMESPACE -text
+R/DS.GCM.to.regular.grid.R -text
+R/anom.prec.R -text
+R/anom.temp.R -text
+R/append.nc.R -text
+R/bioclim.R -text
+R/extend.global.data.R -text
+R/extract.monthly.averages.R -text
+R/interp2grid.R -text
+R/interp2pnt.R -text
+R/nc2dataframe.R -text
+man/bioclim.Rd -text
+man/interp2grid.Rd -text
+man/interp2pnt.Rd -text
+src/interpolate.c -text

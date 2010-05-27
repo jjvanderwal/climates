@@ -1,0 +1,12 @@
+Package: climates
+Type: Package
+Title: Methods for working with and downscaling climate
+Version: 0.1
+Date: 2010-05-24
+Author: Jeremy VanDerWal
+Maintainer: Jeremy VanDerWal <jjvanderwal@gmail.com>
+Depends: SDMTools
+Suggests: raster, sp
+Description: Methods for working with, downscaling climate, recreating bioclim variables, etc.
+License: GPL version 2 or newer
+LazyLoad: yes
