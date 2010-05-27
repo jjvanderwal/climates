@@ -1,9 +1,7 @@
 \name{extract.monthly.averages}
 \alias{extract.monthly.averages}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{
-%%  ~~function to do ... ~~
-}
+\title{ Extract Monthly Longterm Climate Averages }
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }

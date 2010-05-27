@@ -1,7 +1,7 @@
 \name{anom.temp}
 \alias{anom.temp}
 
-\title{ Precipitation Anomoly Calculation }
+\title{ Temperature Anomoly Calculation }
 
 \description{ 
 	\code{anom.temp} provides a method to estimate the anomoly as an absolute difference of the future or past climate relative to the current. 

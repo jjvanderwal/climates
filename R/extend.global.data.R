@@ -24,5 +24,7 @@ extend.global.data = function(nc) {
 	out[,,1] = out[,,dim(out)[3]-1]
 	out[,,dim(out)[3]] = out[,,2]
 	#return the extended outa
-	return(list(dat=out,lon=nc$lon,lat=nc$lat,tim=nc$tim))
+	out = list(dat=out,lon=nc$lon,lat=nc$lat,tim=nc$tim)
+	class(out) = unique(c(class(out),'nc'))
+	return(out)
 }

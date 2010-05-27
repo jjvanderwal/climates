@@ -13,9 +13,9 @@
 
 \arguments{
 	\item{tmin}{a data.frame or matrix with 12 or 52 columns representing monthly or weekly minimum temperature data; rows represent different locations.}
-	\item{tmax}{a data.frame or matrix with 12 or 52 columns representing monthly or weekly maximum temperature data; rows represent different locations.}
-	\item{prec}{a data.frame or matrix with 12 or 52 columns representing monthly or weekly precipitation data; rows represent different locations.}
-	\item{tmean}{a data.frame or matrix with 12 or 52 columns representing monthly or weekly mean temperature data; rows represent different locations. If }
+	\item{tmax}{a data.frame or matrix as with \code{tmin} representing maximum temperature data.}
+	\item{prec}{a data.frame or matrix as with \code{tmin} representing precipitation data.}
+	\item{tmean}{a data.frame or matrix as with \code{tmin} representing mean temperature data.}
 	\item{vois}{a vector of values between 1 & 19 defining the bioclimatic variables to be calculated; see details for variable description.}
 	\item{cov}{a boolean value where TRUE represents Temperature seasonality (4) is calculated as in ANUCLIM and FALSE is calclated as with Worldclim; see details for further information. }
 	\item{t.as.int}{a boolean value where TRUE will convert all temperature values to integers by rounding(temp*10); FALSE will leave temperater values as is.}

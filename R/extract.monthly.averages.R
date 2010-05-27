@@ -17,5 +17,7 @@ extract.monthly.averages <- function(nc,min.year,max.year) {
 	#now get the average by deviding by the number of months
 	for (ii in mm) out.data[ii,,] = out.data[ii,,] / (max.year-min.year+1)
 	#return the information
-	return(list(dat=out.data,lon=lon,lat=lat,tim=mm))
+	out = list(dat=out,lon=nc$lon,lat=nc$lat,tim=nc$tim)
+	class(out) = unique(c(class(out),'nc'))
+	return(out)
 }

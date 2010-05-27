@@ -1,9 +1,7 @@
 \name{extend.global.data}
 \alias{extend.global.data}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{
-%%  ~~function to do ... ~~
-}
+\title{ Extend Extents of Global Data to Interpolate Spherical Data }
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }

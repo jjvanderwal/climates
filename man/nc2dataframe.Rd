@@ -1,9 +1,7 @@
 \name{nc2dataframe}
 \alias{nc2dataframe}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{
-%%  ~~function to do ... ~~
-}
+\title{ Convert Objects of Class NC to a Data.frame }
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }

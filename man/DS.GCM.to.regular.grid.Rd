@@ -1,9 +1,7 @@
 \name{DS.GCM.to.regular.grid}
 \alias{DS.GCM.to.regular.grid}
 %- Also NEED an '\alias' for EACH other topic documented here.
-\title{
-%%  ~~function to do ... ~~
-}
+\title{ Downscale Global GCM Models to a Regular Grid }
 \description{
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }

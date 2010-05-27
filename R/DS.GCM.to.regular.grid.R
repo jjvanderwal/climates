@@ -9,5 +9,7 @@ DS.GCM.to.regular.grid = function(nc,cellsize=0.2,type=2) {
 	lon = seq(-180+05*cellsize,180-0.5*cellsize,cellsize)
 	out = array(0,dim=c(length(nc$tim),length(lat),length(lon)))
 	for (ii in 1:length(nc$tim)) { out[ii,,] = interp2grid(nc$dat[ii,,],lon,lat,nc$lon,nc$lat,type=type) }
-	return(list(dat=out,lon=lon,lat=lat,tim=nc$tim))
+	out = list(dat=out,lon=lon,lat=lat,tim=nc$tim)
+	class(out) = unique(c(class(out),'nc'))
+	return(out)
 }

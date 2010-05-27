@@ -9,3 +9,5 @@ function (nc) {
 	for (tim in nc$tim) out[[paste('tim.',tim,sep='')]] = as.vector(nc$dat[tim,,])
 	return(out)
 }
+
+

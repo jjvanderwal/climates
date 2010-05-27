@@ -18,5 +18,6 @@ append.nc = function(nc1,nc2) {
 	if ('filename' %in% names(nc1)) out$filename = NA
 	if ('attributes' %in% names(nc1)) out$attributes$filename = NA
 	#return the data
+	class(out) = unique(c(class(out),'nc'))
 	return(out)
 }
