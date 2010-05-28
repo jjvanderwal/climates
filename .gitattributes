@@ -11,6 +11,7 @@ R/extract.monthly.averages.R -text
 R/interp2grid.R -text
 R/interp2pnt.R -text
 R/nc2dataframe.R -text
+R/read.nc.R -text
 man/DS.GCM.to.regular.grid.Rd -text
 man/anom.prec.Rd -text
 man/anom.temp.Rd -text
@@ -21,4 +22,5 @@ man/extract.monthly.averages.Rd -text
 man/interp2grid.Rd -text
 man/interp2pnt.Rd -text
 man/nc2dataframe.Rd -text
+man/read.nc.Rd -text
 src/interpolate.c -text
