@@ -25,7 +25,7 @@ read.nc <- function (filename = file.path("data", "air.mon.mean.nc"), v.nam = "A
 			print(dsh)
 			yy0 <- as.numeric(substr(torg, dsh[2] + 1, dsh[2] + 4))
 			dd0 <- as.numeric(substr(torg, 1, dsh[1] - 1))
-			mm0 <- switch(lower.case(substr(torg, dsh[1] + 1, dsh[2] - 
+			mm0 <- switch(tolower(substr(torg, dsh[1] + 1, dsh[2] - 
 				1)), jan = 1, feb = 2, mar = 3, apr = 4, may = 5, 
 				jun = 6, jul = 7, aug = 8, sep = 9, oct = 10, nov = 11, 
 				dec = 12)
@@ -36,34 +36,34 @@ read.nc <- function (filename = file.path("data", "air.mon.mean.nc"), v.nam = "A
 				print("'> print(julday(1,1,1)-julday(1,1,-1))' gives 365")
 				print("julday wont work unless the time is fixed")
 				print("year0 is set to 1, and 365 days is subtracted from tim")
-				if (substr(lower.case(t.unit), 1, 4) == "hour") 
+				if (substr(tolower(t.unit), 1, 4) == "hour") 
 					tim <- tim - 365 * 24
-				if (substr(lower.case(t.unit), 1, 3) == "day") 
+				if (substr(tolower(t.unit), 1, 3) == "day") 
 					tim <- tim - 365
-				if (substr(lower.case(t.unit), 1, 3) == "mon") 
+				if (substr(tolower(t.unit), 1, 3) == "mon") 
 					tim <- tim - 12
-				if (substr(lower.case(t.unit), 1, 5) == "year") 
+				if (substr(tolower(t.unit), 1, 5) == "year") 
 					tim <- tim - 1
 				yy0 <- 1
 			}
 			if (is.null(t.unit)) 
 				t.unit <- x$dat.att$t.unit
-			print(paste("Time unit:", lower.case(t.unit)))
-			if (substr(lower.case(t.unit), 1, 3) == "mon") {
+			print(paste("Time unit:", tolower(t.unit)))
+			if (substr(tolower(t.unit), 1, 3) == "mon") {
 				tim <- floor(tim)
 				mm <- mod(mm0 + tim - 1, 12) + 1
 				yy <- yy0 + floor((tim + mm0 - 1)/12)
 				dd <- rep(15, length(tim))
 				obj.type <- "monthly.field.object"
 			}
-			else if (substr(lower.case(t.unit), 1, 3) == "day") {
+			else if (substr(tolower(t.unit), 1, 3) == "day") {
 				mmddyy <- caldat(tim + julday(mm0, dd0, yy0))
 				mm <- mmddyy$month
 				yy <- mmddyy$year
 				dd <- mmddyy$day
 				obj.type <- "daily.field.object"
 			}
-			else if (substr(lower.case(t.unit), 1, 4) == "hour") {
+			else if (substr(tolower(t.unit), 1, 4) == "hour") {
 				mmddyy <- caldat(tim/24 + julday(mm0, dd0, yy0))
 				mm <- mmddyy$month
 				yy <- mmddyy$year
@@ -241,21 +241,21 @@ read.nc <- function (filename = file.path("data", "air.mon.mean.nc"), v.nam = "A
 			spc <- nchar(datestr)
 		if (dsh[1] == 3 & dsh[2] == 7) {
 			yy0 <- as.numeric(substr(datestr, 8, 11))
-			mm0 <- switch(lower.case(substr(datestr, 4, 6)), jan = 1,
+			mm0 <- switch(tolower(substr(datestr, 4, 6)), jan = 1,
 				feb = 2, mar = 3, apr = 4, may = 5, jun = 6, jul = 7,
 				aug = 8, sep = 9, oct = 10, nov = 11, dec = 12)
 			dd0 <- as.numeric(substr(datestr, 1, 2))
 		}
 		if (dsh[1] == 2 & dsh[2] == 6) {
 			yy0 <- as.numeric(substr(datestr, 7, 11))
-			mm0 <- switch(lower.case(substr(datestr, 3, 5)), jan = 1,
+			mm0 <- switch(tolower(substr(datestr, 3, 5)), jan = 1,
 				feb = 2, mar = 3, apr = 4, may = 5, jun = 6, jul = 7,
 				aug = 8, sep = 9, oct = 10, nov = 11, dec = 12)
 			dd0 <- as.numeric(substr(datestr, 1, 1))
 		}
 		if (dsh[1] == 5 & dsh[2] == 9) {
 			yy0 <- as.numeric(substr(datestr, 1, 4))
-			mm0 <- switch(lower.case(substr(datestr, 6, 8)), jan = 1,
+			mm0 <- switch(tolower(substr(datestr, 6, 8)), jan = 1,
 				feb = 2, mar = 3, apr = 4, may = 5, jun = 6, jul = 7,
 				aug = 8, sep = 9, oct = 10, nov = 11, dec = 12)
 			dd0 <- as.numeric(substr(datestr, 10, 11))
@@ -326,10 +326,10 @@ read.nc <- function (filename = file.path("data", "air.mon.mean.nc"), v.nam = "A
     nd <- ncid$var[[ipick]]$ndims
     cdfdims <- rep("-", nd)
     for (i in 1:nd) cdfdims[i] <- ncid$var[[ipick]]$dim[[i]]$name
-    ilon <- grep(x.nam, lower.case(cdfdims))
-    ilat <- grep(y.nam, lower.case(cdfdims))
-    itim <- grep(t.nam, lower.case(cdfdims))
-    ilev <- grep(z.nam, lower.case(cdfdims))
+    ilon <- grep(x.nam, tolower(cdfdims))
+    ilat <- grep(y.nam, tolower(cdfdims))
+    itim <- grep(t.nam, tolower(cdfdims))
+    ilev <- grep(z.nam, tolower(cdfdims))
     scal <- NULL
     offs <- NULL
     arv <- att.get.ncdf(ncid, cdfvars[ipick], "scale_factor")
@@ -362,7 +362,7 @@ read.nc <- function (filename = file.path("data", "air.mon.mean.nc"), v.nam = "A
         daysayear <- 365
     }
     if ((is.null(torg)) | is.null(t.unit)) {
-        if ((lower.case(a[1]) == "linux") & (use.cdfcont)) {
+        if ((tolower(a[1]) == "linux") & (use.cdfcont)) {
             if (!silent) 
                 print("Linux & use.cdfcont : call cdfconf()")
             if (is.null(torg)) 
@@ -504,15 +504,15 @@ read.nc <- function (filename = file.path("data", "air.mon.mean.nc"), v.nam = "A
             print("julday wont work unless the time is fixed")
         if (!silent) 
             print("year0 is set to 1, and 365 days is subtracted from tim")
-        if (substr(lower.case(t.unit), 1, 4) == "hour") {
+        if (substr(tolower(t.unit), 1, 4) == "hour") {
             tim <- tim - 365 * 24
             t.unit <- "day"
         }
-        if (substr(lower.case(t.unit), 1, 3) == "day") 
+        if (substr(tolower(t.unit), 1, 3) == "day") 
             tim <- tim - 365
-        if (substr(lower.case(t.unit), 1, 3) == "mon") 
+        if (substr(tolower(t.unit), 1, 3) == "mon") 
             tim <- tim - 12
-        if (substr(lower.case(t.unit), 1, 4) == "year") 
+        if (substr(tolower(t.unit), 1, 4) == "year") 
             tim <- tim - 1
         yy0 <- 1
     }
@@ -540,8 +540,8 @@ read.nc <- function (filename = file.path("data", "air.mon.mean.nc"), v.nam = "A
         }
         if (is.finite(r2.gcm) & is.finite(r2.real)) {
             if ((r2.gcm > r2.real) & (length(rownames(table(diff(tim)))) <= 
-                2) & ((substr(lower.case(t.unit), 1, 3) == "day") | 
-                (substr(lower.case(t.unit), 1, 4) == "hour")) & 
+                2) & ((substr(tolower(t.unit), 1, 3) == "day") | 
+                (substr(tolower(t.unit), 1, 4) == "hour")) & 
                 !force365.25) {
                 print("> > > > Detecting a '360-day' model year! < < < <")
                 yy <- yy0 + floor((tim + (mm0 - 1) * 30 + dd0 - 
@@ -554,15 +554,15 @@ read.nc <- function (filename = file.path("data", "air.mon.mean.nc"), v.nam = "A
         }
     }
     if (!silent) 
-        print(paste("Time unit:", lower.case(t.unit)))
-    if (substr(lower.case(t.unit), 1, 3) == "mon") {
+        print(paste("Time unit:", tolower(t.unit)))
+    if (substr(tolower(t.unit), 1, 3) == "mon") {
         tim <- floor(tim)
         mm <- mod(mm0 + tim - 1, 12) + 1
         yy <- yy0 + floor((tim + mm0 - 1)/12)
         dd <- rep(15, length(tim))
         obj.type <- "monthly.field.object"
     }
-    else if (substr(lower.case(t.unit), 1, 3) == "yea") {
+    else if (substr(tolower(t.unit), 1, 3) == "yea") {
         tim <- floor(tim)
         mm <- rep(mm0, length(tim))
         yy <- yy0 + tim
@@ -570,7 +570,7 @@ read.nc <- function (filename = file.path("data", "air.mon.mean.nc"), v.nam = "A
         obj.type <- "monthly.field.object"
         t.unit <- "month"
     }
-    else if (substr(lower.case(t.unit), 1, 3) == "day") {
+    else if (substr(tolower(t.unit), 1, 3) == "day") {
         if ((yy0 != 0) & (daysayear == 365.25)) 
             mmddyy <- caldat(tim + julday(mm0, dd0, yy0))
         else if (median(diff(tim)) > 29) {
@@ -587,7 +587,7 @@ read.nc <- function (filename = file.path("data", "air.mon.mean.nc"), v.nam = "A
         dd <- mmddyy$day
         obj.type <- "daily.field.object"
     }
-    else if (substr(lower.case(t.unit), 1, 4) == "hour") {
+    else if (substr(tolower(t.unit), 1, 4) == "hour") {
         if (yy0 != 0) 
             mmddyy <- caldat(tim/24 + julday(mm0, dd0, yy0))
         else {
@@ -600,7 +600,7 @@ read.nc <- function (filename = file.path("data", "air.mon.mean.nc"), v.nam = "A
         t.unit <- "day"
         obj.type <- "daily.field.object"
     }
-    else if (substr(lower.case(t.unit), 1, 5) == "minut") {
+    else if (substr(tolower(t.unit), 1, 5) == "minut") {
         if (yy0 != 0) 
             mmddyy <- caldat(tim/(24 * 60) + julday(mm0, dd0, 
                 yy0))
@@ -818,7 +818,7 @@ read.nc <- function (filename = file.path("data", "air.mon.mean.nc"), v.nam = "A
         rm(data.w)
     gc(reset = TRUE)
     close.ncdf(ncid)
-    if (((substr(lower.case(t.unit), 1, 4) == "hour") | (substr(lower.case(t.unit), 
+    if (((substr(tolower(t.unit), 1, 4) == "hour") | (substr(tolower(t.unit), 
         1, 3) == "day")) & (max(diff(dd)) == 0)) {
         if (!silent) 
             print("Monthly data, but time unit set to 'hour'/'day'")
@@ -896,7 +896,7 @@ read.nc <- function (filename = file.path("data", "air.mon.mean.nc"), v.nam = "A
     if (((l.scale) & !is.null(offs))) {
         if ((offs != 273) & (unit == "deg C")) {
             a <- readline(prompt = "Correct an old bug? (y/n)")
-            if (lower.case(a) == "y") 
+            if (tolower(a) == "y") 
                 dat <- dat + offs
         }
         else if (is.finite(offs)) {
@@ -910,7 +910,7 @@ read.nc <- function (filename = file.path("data", "air.mon.mean.nc"), v.nam = "A
         dat <- dat - 273
         unit <- "deg C"
     }
-    if ((unit == "Pa") | (substr(lower.case(unit), 1, 6) == "pascal") | 
+    if ((unit == "Pa") | (substr(tolower(unit), 1, 6) == "pascal") | 
         (unit == "N/m^2") | (unit == "N m^{-1}")) {
         dat <- dat/100
         unit <- "hPa"
@@ -939,7 +939,7 @@ read.nc <- function (filename = file.path("data", "air.mon.mean.nc"), v.nam = "A
     attr(tim, "time_origin") <- torg
     if ((obj.type == "daily.field.object") & (min(diff(tim)) >= 
         28) & (regular) & (sum(is.element(diff(mm), 0)) > 0) & 
-        (substr(lower.case(t.unit), 1, 3) == "day")) {
+        (substr(tolower(t.unit), 1, 3) == "day")) {
         if (!silent) 
             print("Problems detected in date-timeunit Quality Control")
         tim <- 1:length(tim) - 1
