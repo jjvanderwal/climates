@@ -297,7 +297,65 @@ read.nc <- function (filename = file.path("data", "air.mon.mean.nc"), v.nam = "A
 		else datestr2num <- yy0 + mm0/12 + dd0/31
 		datestr2num
 	}
-	
+
+	instring <- function (c, target, case.match = TRUE) 
+	{
+		l <- nchar(target)
+		if (!case.match) {
+			c <- lower.case(c)
+			target <- lower.case(target)
+		}
+		nc <- nchar(c)
+		if (nc == 1) {
+			pos <- 0
+			for (i in 1:l) {
+				tst <- substr(target, i, i)
+				if (tst == c) 
+					pos <- c(pos, i)
+			}
+			if (length(pos) > 1) 
+				pos <- pos[-1]
+		}
+		else {
+			spos <- rep(NA, nc * l)
+			dim(spos) <- c(nc, l)
+			for (j in 1:nc) {
+				a <- instring(substr(c, j, j), target)
+				if (length(a) > 0) {
+					if (j > 1) {
+					  a.match <- is.element(a, spos[j - 1, ] + 1)
+					  a <- a[a.match]
+					  p.match <- is.element(spos[j - 1, ], a - 1)
+					  spos <- spos[, p.match]
+					  dim(spos) <- c(nc, sum(p.match))
+					}
+					if (length(a) < dim(spos)[2]) {
+					  spos <- spos[, 1:length(a)]
+					  dim(spos) <- c(nc, length(a))
+					}
+					spos[j, ] <- a
+				}
+				else spos[j, ] <- 0
+			}
+			ns <- dim(spos)[2]
+			if (ns > 0) {
+				pos <- rep(0, ns)
+				for (i in 1:ns) {
+					b <- c(diff(spos[, i]), 1)
+					i1 <- is.element(b, 1)
+					b[!i1] <- 0
+					if (sum(b) == nc) 
+					  pos[i] <- spos[1, i]
+				}
+			}
+			else {
+				pos <- 0
+				pos <- pos[-1]
+			}
+		}
+		pos
+	}	
+
 	############################################################################
 	# Some definitions and handy variables:
 	cmon <- c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", 
