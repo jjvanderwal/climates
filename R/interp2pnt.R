@@ -20,6 +20,9 @@ function(mat,xout,yout,xin=NULL,yin=NULL,type=2) {
 	#ensure type is 1, 2 or 3
 	if (!(type %in% 1:3)) stop('type must be a single numeric value of 1, 2 or 3. See help file')
 	
+	#ensure order of yout & xout is y ... this is needed for the c code...
+	torder = order(yout); yout = yout[torder]; xout = xout[torder]
+	
 	#get the xy of mat
 	if (is.null(xin) | is.null(yin)){
 		if (any(class(mat) == 'asc')) { #check to ensure mat is of class asc & use getXYcoords
@@ -42,6 +45,9 @@ function(mat,xout,yout,xin=NULL,yin=NULL,type=2) {
 		#do the interpolation
 		out = .Call('interp2pnts',mat,mat.y,mat.x,yout,xout,as.integer(type))
 	}
+	
+	#put the order back to the original
+	out = out[order(torder)]
 	
 	#return the value
 	return(out)

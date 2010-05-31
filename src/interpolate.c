@@ -81,7 +81,8 @@ SEXP interp2grid(SEXP tdata, SEXP inX, SEXP inY, SEXP outX, SEXP outY, SEXP type
 			for(xx=0;xx<nXin-1;xx++){//start cycling through each of the longitudes
 				int check = 0; //check if any points fall within this cell
 				for (jj=0;jj<nYout;jj++){ //cycle through each of the output y values
-					if(Yout[jj]>=Yin[yy] && Yout[jj]<=Yin[yy+1]){//if the output y values are within the range of data of interest
+					if(Yout[jj]>=Yin[yy]) { //if the output y values are within the range of data of interest
+						if(Yout[jj]>Yin[yy+1]){ break; }
 						if(Xout[jj]>=Xin[xx] && Xout[jj]<=Xin[xx+1]){ check=1;break; } //stop if it hits a point within the cell
 					}
 				}
@@ -151,7 +152,8 @@ SEXP interp2grid(SEXP tdata, SEXP inX, SEXP inY, SEXP outX, SEXP outY, SEXP type
 						for (ii=0;ii<4;ii++) for (jj=0;jj<4;jj++) c[jj][ii] = cl[l++]; //unpack cl into matrix c
 						//start cycleing though the points to be output
 						for (jj=0;jj<nYout;jj++){ //cycle through each of the output y values
-							if(Yout[jj]>=Yin[yy] && Yout[jj]<=Yin[yy+1]){//if the output y values are within the range of data of interest
+							if(Yout[jj]>=Yin[yy]) { //if the output y values are within the range of data of interest
+								if(Yout[jj]>Yin[yy+1]){ break; }
 								for (ii=0;ii<nXout;ii++){ //cycle through each of the output x values
 									if(Xout[ii]>=Xin[xx] && Xout[ii]<=Xin[xx+1]){
 										//define the x & y values as proportions of the distance
@@ -190,7 +192,8 @@ SEXP interp2grid(SEXP tdata, SEXP inX, SEXP inY, SEXP outX, SEXP outY, SEXP type
 						double x1,x2,x3,y1,y2,y3;
 						//start cycleing though the points to be output
 						for (jj=0;jj<nYout;jj++){ //cycle through each of the output y values
-							if(Yout[jj]>=Yin[yy] && Yout[jj]<=Yin[yy+1]){//if the output y values are within the range of data of interest
+							if(Yout[jj]>=Yin[yy]) { //if the output y values are within the range of data of interest
+								if(Yout[jj]>Yin[yy+1]){ break; }
 								for (ii=0;ii<nXout;ii++){ //cycle through each of the output x values
 									if(Xout[ii]>=Xin[xx] && Xout[ii]<=Xin[xx+1]){
 										//define the x & y values
@@ -281,7 +284,8 @@ SEXP interp2pnts(SEXP tdata, SEXP inX, SEXP inY, SEXP outX, SEXP outY, SEXP type
 			for(xx=0;xx<nXin-1;xx++){//start cycling through each of the longitudes
 				int check = 0; //check if any points fall within this cell
 				for (jj=0;jj<nYout;jj++){ //cycle through each of the output y values
-					if(Yout[jj]>=Yin[yy] && Yout[jj]<=Yin[yy+1]){//if the output y values are within the range of data of interest
+					if(Yout[jj]>=Yin[yy]) { //if the output y values are within the range of data of interest
+						if(Yout[jj]>Yin[yy+1]){ break; }
 						if(Xout[jj]>=Xin[xx] && Xout[jj]<=Xin[xx+1]){ check=1;break; } //stop if it hits a point within the cell
 					}
 				}
@@ -351,7 +355,8 @@ SEXP interp2pnts(SEXP tdata, SEXP inX, SEXP inY, SEXP outX, SEXP outY, SEXP type
 						for (ii=0;ii<4;ii++) for (jj=0;jj<4;jj++) c[jj][ii] = cl[l++]; //unpack cl into matrix c
 						//start cycleing though the points to be output
 						for (jj=0;jj<nYout;jj++){ //cycle through each of the output y values
-							if(Yout[jj]>=Yin[yy] && Yout[jj]<=Yin[yy+1]){//if the output y values are within the range of data of interest
+							if(Yout[jj]>=Yin[yy]) { //if the output y values are within the range of data of interest
+								if(Yout[jj]>Yin[yy+1]){ break; }
 								if(Xout[jj]>=Xin[xx] && Xout[jj]<=Xin[xx+1]){
 									//define the x & y values as proportions of the distance
 									t = (Yout[jj]-Yin[yy])/(Yin[yy+1]-Yin[yy]);
@@ -388,7 +393,8 @@ SEXP interp2pnts(SEXP tdata, SEXP inX, SEXP inY, SEXP outX, SEXP outY, SEXP type
 						double x1,x2,x3,y1,y2,y3;
 						//start cycleing though the points to be output
 						for (jj=0;jj<nYout;jj++){ //cycle through each of the output y values
-							if(Yout[jj]>=Yin[yy] && Yout[jj]<=Yin[yy+1]){//if the output y values are within the range of data of interest
+							if(Yout[jj]>=Yin[yy]) { //if the output y values are within the range of data of interest
+								if(Yout[jj]>Yin[yy+1]){ break; }
 								if(Xout[jj]>=Xin[xx] && Xout[jj]<=Xin[xx+1]){
 									//define the x & y values
 									x1 = (Yout[jj]-Yin[yy])/(Yin[yy+1]-Yin[yy]); x2 = x1 * x1; x3 = x2 * x1;
