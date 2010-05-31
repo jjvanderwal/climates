@@ -1,5 +1,5 @@
-\name{DS.GCM.to.regular.grid}
-\alias{DS.GCM.to.regular.grid}
+\name{DS.GCM.to.grid}
+\alias{DS.GCM.to.grid}
 \alias{DS.GCM.to.pnt}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{ Downscale Global GCM Models to a Regular Grid }
@@ -7,7 +7,7 @@
 %%  ~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \usage{
-DS.GCM.to.regular.grid(nc, cellsize = 0.2, type = 2)
+DS.GCM.to.grid(nc,lon=c(-180,180),lat=c(-90,90),cellsize=0.2,type=2) 
 DS.GCM.to.pnt = function(nc,lon,lat,type=2)
 }
 \arguments{

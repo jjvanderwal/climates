@@ -1,7 +1,7 @@
 * text=auto !eol
 /DESCRIPTION -text
 /NAMESPACE -text
-R/DS.GCM.to.regular.grid.R -text
+R/DS.GCM.to.grid.R -text
 R/anom.prec.R -text
 R/anom.temp.R -text
 R/append.nc.R -text
@@ -12,7 +12,7 @@ R/interp2grid.R -text
 R/interp2pnt.R -text
 R/nc2dataframe.R -text
 R/read.nc.R -text
-man/DS.GCM.to.regular.grid.Rd -text
+man/DS.GCM.to.grid.Rd -text
 man/anom.prec.Rd -text
 man/anom.temp.Rd -text
 man/append.nc.Rd -text

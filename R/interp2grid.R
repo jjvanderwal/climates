@@ -19,7 +19,7 @@ function(mat,xout,yout,xin=NULL,yin=NULL,type=2) {
 	if (!(type %in% 1:3)) stop('type must be a single numeric value of 1, 2 or 3. See help file')
 	#ensure xout & yout are in order and cell sizes are square
 	xout = sort(xout); yout = sort(yout)
-	if (mean(diff(xout))!=mean(diff(yout))) stop('differences in xout/yout must be consistent & identical')
+	#if (mean(diff(xout))!=mean(diff(yout))) stop('differences in xout/yout must be consistent & identical')
 	
 	#get the xy of mat
 	if (is.null(xin) | is.null(yin)){

@@ -152,8 +152,7 @@ SEXP interp2grid(SEXP tdata, SEXP inX, SEXP inY, SEXP outX, SEXP outY, SEXP type
 						for (ii=0;ii<4;ii++) for (jj=0;jj<4;jj++) c[jj][ii] = cl[l++]; //unpack cl into matrix c
 						//start cycleing though the points to be output
 						for (jj=0;jj<nYout;jj++){ //cycle through each of the output y values
-							if(Yout[jj]>=Yin[yy]) { //if the output y values are within the range of data of interest
-								if(Yout[jj]>Yin[yy+1]){ break; }
+							if(Yout[jj]>=Yin[yy]) && Yout[jj]>Yin[yy+1]){ 
 								for (ii=0;ii<nXout;ii++){ //cycle through each of the output x values
 									if(Xout[ii]>=Xin[xx] && Xout[ii]<=Xin[xx+1]){
 										//define the x & y values as proportions of the distance
