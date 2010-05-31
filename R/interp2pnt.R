@@ -27,7 +27,7 @@ function(mat,xout,yout,xin=NULL,yin=NULL,type=2) {
 		} else { #use the dimensions of the matrix
 			mat.x = 1:dim(mat)[2]-1; mat.y = 1:dim(mat)[1]-1
 		}
-	}
+	} else { mat.x = xin; mat.y = yin }
 	
 	#check to ensure all point fall within the boundaries of the matrix
 	extents.x = range(mat.x); extents.y = range(mat.y)

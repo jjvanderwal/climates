@@ -1,5 +1,6 @@
 \name{DS.GCM.to.regular.grid}
 \alias{DS.GCM.to.regular.grid}
+\alias{DS.GCM.to.pnt}
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{ Downscale Global GCM Models to a Regular Grid }
 \description{
@@ -7,18 +8,14 @@
 }
 \usage{
 DS.GCM.to.regular.grid(nc, cellsize = 0.2, type = 2)
+DS.GCM.to.pnt = function(nc,lon,lat,type=2)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{nc}{
-%%     ~~Describe \code{nc} here~~
-}
-  \item{cellsize}{
-%%     ~~Describe \code{cellsize} here~~
-}
-  \item{type}{
-%%     ~~Describe \code{type} here~~
-}
+  \item{nc}{ }
+  \item{cellsize}{ }
+  \item{type}{ }
+  \item{lon}{ }
+  \item{lat}{ }
 }
 \details{
 %%  ~~ If necessary, more details than the description above ~~
