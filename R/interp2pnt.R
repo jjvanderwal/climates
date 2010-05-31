@@ -1,5 +1,7 @@
 interp2pnt <-
 function(mat,xout,yout,xin=NULL,yin=NULL,type=2) {
+	warning('THIS FUNCTION IS NOT WORKING PROPOERLY... C Code must be checked!!!')
+
 	#check input for class for returning info
 	if (class(mat) == 'asc') { 
 		attrib = 'asc'
