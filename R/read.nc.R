@@ -11,6 +11,13 @@ read.nc <- function (filename = file.path("data", "air.mon.mean.nc"), v.nam = "A
     miss2na = TRUE) 
 {
 	#some functions needed for this function
+	mod <- 	function (x, y) 
+	{
+		x1 <- trunc(trunc(x/y) * y)
+		z <- trunc(x) - x1
+		z
+	}
+	
 	fixField <- function (x, torg = NULL, t.unit = NULL, scal = NULL, offs = NULL, 
     x.rng = NULL, y.rng = NULL, z.rng = NULL, t.rng = NULL, greenwich = TRUE) 
 	{
