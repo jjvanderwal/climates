@@ -160,10 +160,11 @@ function(tmin=NULL, tmax=NULL, prec=NULL, tmean=NULL, vois=1:19, cov=FALSE, t.as
 	}
 	#do the necessary rounding
 	if (t.as.int) {
-		out[,c(1:3,5:11)] = round(out[,c(1:3,5:11)]*10)
+		out[,c(1:2,5:11)] = round(out[,c(1:2,5:11)]*10)
 	} else {
-		out[,c(1:3,5:11)] = round(out[,c(1:3,5:11)],1)
+		out[,c(1:2,5:11)] = round(out[,c(1:2,5:11)],1)
 	}
+	out[,3] = round(out[,3]*100)
 	out[,c(4,15)] = round(out[,c(4,15)]*100)
 	out[,c(12:14,16:19)] = round(out[,c(12:14,16:19)])
 	
