@@ -1,7 +1,7 @@
 Package: climates
 Type: Package
 Title: Methods for working with climate
-Version: 0.1-1
+Version: 0.1-1.1
 Date: 2010-05-28
 Author: Jeremy VanDerWal, Linda Beaumont and Nicholas Zimmerman
 Maintainer: Jeremy VanDerWal <jjvanderwal@gmail.com>
