@@ -8,6 +8,7 @@ R/append.nc.R -text
 R/bioclim.R -text
 R/extend.global.data.R -text
 R/extract.monthly.averages.R -text
+R/extremes.R -text
 R/interp2grid.R -text
 R/interp2pnt.R -text
 R/nc2dataframe.R -text
