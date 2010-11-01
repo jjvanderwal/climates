@@ -1,4 +1,4 @@
-#this is a function to recreate bioclim variables
+#this is a  function to recreate bioclim variables
 
 bioclim <-
 function(tmin=NULL, tmax=NULL, prec=NULL, tmean=NULL, vois=1:19, cov=FALSE, t.as.int=TRUE, period="month") {
