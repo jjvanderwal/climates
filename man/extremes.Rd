@@ -1,7 +1,7 @@
 \name{extremes}
 \alias{extremes}
 
-\title{Extremes - Calculate Quarter with Extremes for Temperature and Precipitation}
+\title{Calculate Quarter with Extremes for Temperature and Precipitation}
 \description{
 	\code{extremes} calculates quarter (3 month or 13 week) in wich 
 highest and lowest temperature and highest and lowest precipitation 
