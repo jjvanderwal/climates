@@ -3,7 +3,7 @@
 \title{ Read From a netCDF File }
 \description{
 	\code{read.nc} reads a netCDF file from e.g., PCMDI and picks out vectors that look like longitude, latitude and time. It returns a list containing the data and associated attributes from the netCDF file.\cr\cr
-	The code here represents some, albeit slight, modification of \code{retrieve.nc) of the clim.pact package. As functions of this package require consistent structuring of outputs, we decided to present a modified copy of that function here. Indeed, much of this helpfile comes from \code{retrieve.nc}.
+	The code here represents some, albeit slight, modification of \code{retrieve.nc} of the clim.pact package. As functions of this package require consistent structuring of outputs, we decided to present a modified copy of that function here. Indeed, much of this helpfile comes from \code{retrieve.nc}.
 }
 
 \usage{
