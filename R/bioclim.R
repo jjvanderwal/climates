@@ -159,3 +159,4 @@ bioclim=function (tmin = NULL, tmax = NULL, prec = NULL, tmean = NULL,
     colnames(out) = paste("bioclim", 1:19, sep = "_")
     return(out[, vois])
 }
+
