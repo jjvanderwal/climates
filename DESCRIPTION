@@ -1,12 +1,11 @@
 Package: climates
 Type: Package
-Title: Methods for working with climate
-Version: 0.1-1.1
-Date: 2010-05-28
-Author: Jeremy VanDerWal, Linda Beaumont and Nicholas Zimmerman
+Title: Methods for working with weather & climate
+Version: 0.1-1.2
+Date: 2011-03-23
+Author: Jeremy VanDerWal, Linda Beaumont, Nicholas Zimmerman, Patrick Lorch
 Maintainer: Jeremy VanDerWal <jjvanderwal@gmail.com>
-Depends: ncdf
-Suggests: SDMTools, raster, clim.pact
+Suggests: ncdf, SDMTools, raster, clim.pact
 Description: Methods for working with, downscaling climate, recreating bioclim variables, extracting extreme event information, etc.
 License: GPL version 2 or newer
 LazyLoad: yes

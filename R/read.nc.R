@@ -10,6 +10,7 @@ read.nc <- function (filename = file.path("data", "air.mon.mean.nc"), v.nam = "A
     forceBC = TRUE, use.cdfcont = FALSE, torg = NULL, t.unit = NULL, 
     miss2na = TRUE) 
 {
+	require('ncdf') #this is required for this function
 	#some functions needed for this function
 	mod <- 	function (x, y) 
 	{
