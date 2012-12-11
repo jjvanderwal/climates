@@ -18,7 +18,7 @@ bioclim=function (tmin = NULL, tmax = NULL, prec = NULL, tmean = NULL,
 	error.check=function(datum,datum.name,dsize=tsize){
 		if (is.null(datum)) 
 			stop(paste(datum.name,"is needed for the variables selected"))
-		else if (is.data.frame(datum) | is.matrix(tmin)) {
+		else if (is.data.frame(datum) | is.matrix(datum)) {
 			if (!(dim(datum)[2] %in% c(12, 52))) # check for correct number of columns
 				stop(paste(datum.name,"must have 12 or 52 columns -- one for each month or week."))
 			dsize = c(dsize, dim(datum)[1])
