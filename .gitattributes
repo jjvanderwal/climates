@@ -6,6 +6,7 @@ R/anom.prec.R -text
 R/anom.temp.R -text
 R/append.nc.R -text
 R/bioclim.R -text
+R/bioclim2.R -text
 R/extend.global.data.R -text
 R/extract.monthly.averages.R -text
 R/extremes.R -text
