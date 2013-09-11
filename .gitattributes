@@ -26,4 +26,5 @@ man/interp2grid.Rd -text
 man/interp2pnt.Rd -text
 man/nc2dataframe.Rd -text
 man/read.nc.Rd -text
+src/bioclimate.c -text
 src/interpolate.c -text
