@@ -1,5 +1,5 @@
 bioclim=function (tmin = NULL, tmax = NULL, prec = NULL, tmean = NULL,
-    vois = 1:19, cov = FALSE) 
+    vois = 1:19, cov = FALSE, files.as.inputs=TRUE) 
 {
 	# Fuction that calculates all of the 19 BIOCLIM variables (not all subsets possible)
 	# 	tmin, tmax and prec must be specified in the function call; if you have tmean you may pass
@@ -13,7 +13,7 @@ bioclim=function (tmin = NULL, tmax = NULL, prec = NULL, tmean = NULL,
 	
 	#function to check and load data
 	loaddata = function(x) {
-		if (is.character(x) & length(x)==1) {
+		if (files.as.inputs) {
 			if (length(grep('.csv',x,ignore.case=TRUE))>0) { #read in csv
 				x = read.csv(x,as.is=TRUE)
 			} else if (length(grep('.RData',x,ignore.case=TRUE))>0) { #read in the Rdata file
@@ -21,12 +21,12 @@ bioclim=function (tmin = NULL, tmax = NULL, prec = NULL, tmean = NULL,
 				load(x,envir=aa) #load hte data
 				x = aa[[ls(aa)[1]]] #move the data to a new name in the parent envornment
 				rm(aa); gc() #remove the extra environment and data
-			} else if (is.data.frame(x)) {
-				x = as.matrix(x) #convert to a matrix				
 			}
-			if (!dim(x)[2]==12) stop('not 12 columns for the inputs')
-			return(x)
+		} else if (is.data.frame(x)) {
+				x = as.matrix(x) #convert to a matrix				
 		}
+		if (!dim(x)[2]==12) stop('not 12 columns for the inputs')
+		return(x)
 	}
 
 	
@@ -34,66 +34,58 @@ bioclim=function (tmin = NULL, tmax = NULL, prec = NULL, tmean = NULL,
 	dyn.load("/home/jc165798/SCRIPTS/R_package_dev/climates/src/bioclimate.so") #load the c functions into memory
 
 	
-	# tmin = matrix(rnorm(1e7),1e6,12)
+	# tmin = matrix(abs(rnorm(1e7)),1e6,12)
 	# save(tmin,file='delete.RData')
+	# tmax = matrix(abs(rnorm(1e7)),1e6,12)
+	# save(tmax,file='delete2.RData')
+	# prec = matrix(abs(rnorm(1e7)),1e6,12)
+	# save(prec,file='delete3.RData')
+	
+	# tmin = matrix(abs(rnorm(1e7)),1e8,12)
+	# tmax = matrix(abs(rnorm(1e7)),1e8,12)
+	
 	
 	tmin='delete.RData'
-	tmax='delete.RData'
+	tmax='delete2.RData'
+	tmean=NULL
+	files.as.inputs=TRUE
+	prec='delete3.RData'
+	cov=FALSE
+	
 	#start creating bioclim variables
 	out=list() #define the output
 	tmin=loaddata(tmin) #deal with tmin
-	out$bio06 = .Call('rowMin',tmin,10) #get min temp of coldest month
+	out$bio06 = .Call('rowMin',tmin) # 6 Min Temperature of Coldest month
 	tmax=loaddata(tmax) #deal with tmax
-	out$bio05 = .Call('rowMax',tmin,10) #get min temp of coldest month
+	out$bio05 = .Call('rowMax',tmin) # 5 Max Temperature of Warmest month
+	out$bio07 = out$bio05 - out$bio06 # 7 Temperature Annual Range (5-6)
+	out$bio02 = .Call('rowMean',tmax[,] - tmin[,]) # 2 Mean Diurnal Range(Mean(month max-min))
+	out$bio03 = out$bio02 / out$bio07 # 3 Isothermality 2/7
+	if (is.null(tmean)) { 
+		tmean = (tmax[,] + tmin[,]) / 2 #create tmean
+		rm(tmin); rm(tmax); gc() #remove unnecessary files
+	} else {
+		rm(tmin); rm(tmax); gc() #remove unnecessary files
+		tmean=loaddata(tmean) #load the data
+	}
+	out$bio01 = .Call('rowMean',tmean) # 1 Annual Mean Temperature for each location
+	out$bio04 = .Call('rowSD',tmean,out$bio01) # 4 Temperature Seasonality ### as per WORLCLIM
+	if (cov) out$bio04 = (out$bio04 /(out[, 1] + 273.15)) * 100 #to make this comparable to ANUCLIM
+	prec = loaddata(prec) #load in the precip
+	out$bio12 = .Call('rowSum',prec) # 12 Annual Precipitation
+	out$bio13 = .Call('rowMax',prec) # 13 Precipitation of Wettest week/month
+	out$bio14 = .Call('rowMin',prec) # 14 Precipitation of Driest week/month
+	out$bio15 = .Call('rowCov',prec,out$bio12) # 15 Precipitation Seasonality(Coef. of Variation)
 	
 	
 	
-# Check for valid input data
-	if (any(vois %in% tmin.vois))   #  tmin is always needed
-		tsize=error.check(tmin,"tmin")
-    if (any(vois %in% tmax.vois))   #  tmax is always needed
-		tsize=error.check(tmax,"tmax")
-	if (any(vois %in% prec.vois))   # prec is always needed
-		tsize=error.check(prec,"prec")
-	if (any(vois %in% tmean.vois)) { # if needed and not supplied, calculate tmean
-        if (is.null(tmean)) {
-            tmean=(tmax+tmin)/2
-			print("Calculated tmean as (tmax+tmin)/2")
-        }
-        else 
-			tsize=error.check(tmean,"tmean")
-    }
-    if (!all(tsize == mean(tsize))) # Check all input vars are the same length
-        stop("all input data must be of the same length") # redundant?
 	
-	tsize=mean(tsize)
-    
+	out=do.call('cbind',out[c('bio01','bio02','bio03','bio04','bio05','bio06','bio07')]) #bind as a matrix
+	
 	
 # Start calculating BIOCLIM variables and putting them in output matrix
-    if (any(vois %in% c(1, 4)))  # 1 Annual Mean Temperature for each location
-        out[, 1] = rowMeans(tmean, na.rm = T)
-    if (any(vois %in% c(2,3)))  # 2 Mean Diurnal Range(Mean(week/month max-min))
-        out[, 2] = rowMeans(tmax - tmin, na.rm = T)
-    if (any(vois == 4)) { # 4 Temperature Seasonality
-        if (cov) { # ANUCLIM
-            out[, 4] = (apply(tmean, 1, function(x) {return(sd(x, na.rm = T))})
-				/(out[, 1] + 273.15)) * 100
-        }
-        else { # WORLDCLIM
-            out[, 4] = apply(tmean, 1, function(x) {return(sd(x, na.rm = T))})
-        }
-    }
-    if (any(vois %in% c(5, 3, 7))) { # 5 Max Temperature of Warmest week/month
-        out[, 5] = apply(tmax, 1, function(x) {return(max(x, na.rm = T))})
-    }
-    # if (any(vois %in% c(6, 3, 7))) { # 6 Min Temperature of Coldest week/month
-        # out[, 6] = apply(tmin, 1, function(x) {return(min(x, na.rm = T))})
-    # }
-    if (any(vois == 7))  # 7 Temperature Annual Range (5-6)
-        out[, 7] = out[, 5] - out[, 6]
-    if (any(vois == 3))  # 3 Isothermality 2/7
-        out[, 3] = out[, 2]/out[, 7]
-    if (any(vois == 12)) # 12 Annual Precipitation
+
+if (any(vois == 12)) # 12 Annual Precipitation
         out[, 12] = rowSums(prec, na.rm = T)
     if (any(vois == 13)) { # 13 Precipitation of Wettest week/month
         out[, 13] = apply(prec, 1, function(x) {return(max(x, na.rm = T))})
