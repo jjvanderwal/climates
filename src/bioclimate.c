@@ -182,3 +182,108 @@ SEXP rowCov(SEXP tdata, SEXP tmean) {
     return(ans); 
 }
 
+//function to get row tmean from a tmin & tmax matrix
+SEXP createTmean(SEXP tmax, SEXP tmin) {
+	//define the pointers for the data
+	PROTECT(tmax = coerceVector(tmax, REALSXP));
+	double *data1 = REAL(tmax); //this is a binary matrix of data
+	int *dims = INTEGER(coerceVector(getAttrib(tmax, R_DimSymbol), INTSXP)); //get the dimension of the input matrix
+    int nrow = dims[0]; int ncol = dims[1]; //assign the number of rows and columns in the matrix
+	PROTECT(tmin = coerceVector(tmin, REALSXP));
+	double *data2 = REAL(tmin); //this is a binary matrix of data
+		
+	//setup the output matrix
+	SEXP ans; PROTECT(ans = allocMatrix(REALSXP, nrow, ncol));
+	double *out = REAL(ans); //pointer to output dataset
+	
+	//cycle through and copy data to out
+	int row, col;
+	for (row=0; row<nrow; row++) {
+		for (col=0; col<ncol; col++) {
+			out[row+nrow*col] = (data1[row+nrow*col] + data2[row+nrow*col]) / 2;
+		}
+	}
+
+	//return the output data
+	UNPROTECT(3);
+    return(ans); 
+}
+
+//function to diurnal range(bio02) from from a tmin & tmax matrix
+SEXP createBio02(SEXP tmax, SEXP tmin) {
+	//define the pointers for the data
+	PROTECT(tmax = coerceVector(tmax, REALSXP));
+	double *data1 = REAL(tmax); //this is a binary matrix of data
+	int *dims = INTEGER(coerceVector(getAttrib(tmax, R_DimSymbol), INTSXP)); //get the dimension of the input matrix
+    int nrow = dims[0]; int ncol = dims[1]; //assign the number of rows and columns in the matrix
+	PROTECT(tmin = coerceVector(tmin, REALSXP));
+	double *data2 = REAL(tmin); //this is a binary matrix of data
+		
+	//setup the output matrix
+	SEXP ans; PROTECT(ans = allocVector(REALSXP, nrow));
+	double *out = REAL(ans); //pointer to output dataset
+	
+	//cycle through and copy data to out
+	int row, col;
+	for (row=0; row<nrow; row++) {
+		out[row] = 0;
+		for (col=0; col<ncol; col++) {
+			out[row] += (data1[row+nrow*col] - data2[row+nrow*col]);
+		}
+		out[row] /= 12;
+	}
+
+	//return the output data
+	UNPROTECT(3);
+    return(ans); 
+}
+
+//function to get wettest/driest/coldest/warmest 
+SEXP createWWCD(SEXP tmean, SEXP prec) {
+	//define the pointers for the data
+	PROTECT(tmean = coerceVector(tmean, REALSXP));
+	double *data1 = REAL(tmean); //this is a binary matrix of data
+	int *dims = INTEGER(coerceVector(getAttrib(tmean, R_DimSymbol), INTSXP)); //get the dimension of the input matrix
+    int nrow = dims[0]; int ncol = dims[1]; //assign the number of rows and columns in the matrix
+	PROTECT(prec = coerceVector(prec, REALSXP));
+	double *data2 = REAL(prec); //this is a binary matrix of data
+		
+	//setup the output matrix
+	SEXP ans; PROTECT(ans = allocMatrix(REALSXP, nrow, 8));
+	double *out = REAL(ans); //pointer to output dataset
+	
+	//cycle through and copy data to out
+	int row, col;
+	double curTemp, curPrec;
+	for (row=0; row<nrow; row++) {
+		out[row+nrow*0] = out[row+nrow*1] = out[row+nrow*6] = out[row+nrow*7] = (data1[row+nrow*0] + data1[row+nrow*1] + data1[row+nrow*2])/3; //initialize values for row
+		out[row+nrow*2] = out[row+nrow*3] = out[row+nrow*4] = out[row+nrow*5] = data2[row+nrow*0] + data2[row+nrow*1] + data2[row+nrow*2]; //initialize values for row
+		for (col=1; col<10; col++) {
+			curTemp = (data1[row+nrow*col] + data1[row+nrow*(col+1)] + data1[row+nrow*(col+2)])/3;
+			curPrec = data2[row+nrow*col] + data2[row+nrow*(col+1)] + data2[row+nrow*(col+2)];
+			if (curTemp>out[row+nrow*0]) { out[row+nrow*0] = curTemp; out[row+nrow*2] = curPrec; }
+			if (curTemp<out[row+nrow*1]) { out[row+nrow*1] = curTemp; out[row+nrow*3] = curPrec; }
+			if (curPrec>out[row+nrow*4]) { out[row+nrow*6] = curTemp; out[row+nrow*4] = curPrec; }
+			if (curPrec<out[row+nrow*5]) { out[row+nrow*7] = curTemp; out[row+nrow*5] = curPrec; }
+		}
+		curTemp = (data1[row+nrow*10] + data1[row+nrow*11] + data1[row+nrow*0])/3;
+		curPrec = data2[row+nrow*10] + data2[row+nrow*11] + data2[row+nrow*0];
+		if (curTemp>out[row+nrow*0]) { out[row+nrow*0] = curTemp; out[row+nrow*2] = curPrec; }
+		if (curTemp<out[row+nrow*1]) { out[row+nrow*1] = curTemp; out[row+nrow*3] = curPrec; }
+		if (curPrec>out[row+nrow*4]) { out[row+nrow*6] = curTemp; out[row+nrow*4] = curPrec; }
+		if (curPrec<out[row+nrow*5]) { out[row+nrow*7] = curTemp; out[row+nrow*5] = curPrec; }
+		curTemp = (data1[row+nrow*1] + data1[row+nrow*11] + data1[row+nrow*0])/3;
+		curPrec = data2[row+nrow*1] + data2[row+nrow*11] + data2[row+nrow*0];
+		if (curTemp>out[row+nrow*0]) { out[row+nrow*0] = curTemp; out[row+nrow*2] = curPrec; }
+		if (curTemp<out[row+nrow*1]) { out[row+nrow*1] = curTemp; out[row+nrow*3] = curPrec; }
+		if (curPrec>out[row+nrow*4]) { out[row+nrow*6] = curTemp; out[row+nrow*4] = curPrec; }
+		if (curPrec<out[row+nrow*5]) { out[row+nrow*7] = curTemp; out[row+nrow*5] = curPrec; }
+	}
+
+	//return the output data
+	UNPROTECT(3);
+    return(ans); 
+}
+
+
+
