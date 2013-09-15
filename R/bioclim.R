@@ -47,7 +47,7 @@ bioclim=function (tmin = NULL, tmax = NULL, prec = NULL, tmean = NULL,
         stop("all input data must be of the same length") # redundant?
 	
 	tsize=mean(tsize)
-    out = matrix(NA, nr = tsize, nc = 19)  # Set up output matrix
+    out = matrix(NA, nrow = tsize, ncol = 19)  # Set up output matrix
 	
 # Start calculating BIOCLIM variables and putting them in output matrix
     if (any(vois %in% c(1, 4)))  # 1 Annual Mean Temperature for each location
@@ -86,16 +86,16 @@ bioclim=function (tmin = NULL, tmax = NULL, prec = NULL, tmean = NULL,
     }
     if (any(vois %in% c(8:11, 16:19))) { # Warmest/coldest and wettest/driest quarter sums and means
         if (period == "month") {
-            tt1 = matrix(NA, nr = tsize, nc = 12)
-            tt2 = matrix(NA, nr = tsize, nc = 12)
+            tt1 = matrix(NA, nrow = tsize, ncol = 12)
+            tt2 = matrix(NA, nrow = tsize, ncol = 12)
             for (ii in 1:12) {  # Find temperature means for 3 month quarters
                 tt1[, ii] = rowMeans(tmean[, m.per.indx(ii)], na.rm = T)
                 tt2[, ii] = rowSums(prec[, m.per.indx(ii)], na.rm = T)
             } # These are time consuming, so I do them once here
         } # May be able to add some if statements to only do them when needed
         else {
-            tt1 = matrix(NA, nr = tsize, nc = 52)
-            tt2 = matrix(NA, nr = tsize, nc = 52)
+            tt1 = matrix(NA, nrow = tsize, ncol = 52)
+            tt2 = matrix(NA, nrow = tsize, ncol = 52)
             for (ii in 1:52) {  # Find temperature means for 13 week quarters
                 tt1[, ii] = rowMeans(tmean[, w.per.indx(ii)], na.rm = T)
                 tt2[, ii] = rowSums(prec[, w.per.indx(ii)], na.rm = T)
