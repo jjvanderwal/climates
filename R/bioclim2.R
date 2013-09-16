@@ -13,9 +13,9 @@ bioclim2=function (tmin = NULL, tmax = NULL, prec = NULL, tmean = NULL, cov = FA
 	#function to check and load data
 	loaddata = function(x) {
 		if (files.as.inputs) {
-			if (length(grep('.csv',x,ignore.case=TRUE))>0) { #read in csv
+			if (length(grep('csv',substr(x,nchar(x)-4,nchar(x)),ignore.case=TRUE))>0) { #read in csv
 				x = read.csv(x,as.is=TRUE)
-			} else if (length(grep('.RData',x,ignore.case=TRUE))>0) { #read in the Rdata file
+			} else if (length(grep('RData',substr(x,nchar(x)-4,nchar(x)),ignore.case=TRUE))>0) { #read in the Rdata file
 				aa=new.env() #load a new environment
 				load(x,envir=aa) #load hte data
 				x = aa[[ls(aa)[1]]] #move the data to a new name in the parent envornment
