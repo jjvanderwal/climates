@@ -1,4 +1,4 @@
-bioclim=function (tmin = NULL, tmax = NULL, prec = NULL, tmean = NULL, cov = FALSE, files.as.inputs=TRUE) 
+bioclim2=function (tmin = NULL, tmax = NULL, prec = NULL, tmean = NULL, cov = FALSE, files.as.inputs=TRUE) 
 {
 	# Fuction that calculates all of the 19 BIOCLIM variables (not all subsets possible)
 	# 	tmin, tmax and prec must be specified in the function call; if you have tmean you may pass

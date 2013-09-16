@@ -39,13 +39,13 @@ function(mat,xout,yout,xin=NULL,yin=NULL,type=2) {
 	if (is.null(attrib)) {
 		#do the interpolation
 		out = .Call('interp2grid',mat,mat.x,mat.y,xout,yout,as.integer(type))
-		out = matrix(out,nr=length(yout),byrow=FALSE)
+		out = matrix(out,nrow=length(yout),byrow=FALSE)
 		rownames(out)=yout;colnames(out)=xout
 	} else { #if of a different raster type
 		#do the interpolation
 		out = .Call('interp2grid',mat,mat.y,mat.x,yout,xout,as.integer(type))
 		#convert to asc file
-		out = as.asc(matrix(out,nr=length(xout),byrow=FALSE),xll=min(xout),yll=min(yout),cellsize=mean(diff(xout)),type="numeric")
+		out = as.asc(matrix(out,nrow=length(xout),byrow=FALSE),xll=min(xout),yll=min(yout),cellsize=mean(diff(xout)),type="numeric")
 		if (attrib=='raster') out = raster.from.asc(out)
 		if (attrib=='sp') out = sp.from.asc(out)
 	}
