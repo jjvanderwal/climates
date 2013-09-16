@@ -70,6 +70,6 @@ bioclim2=function (tmin = NULL, tmax = NULL, prec = NULL, tmean = NULL, cov = FA
 		'bioclim_06','bioclim_07','bioclim_08','bioclim_09','bioclim_10','bioclim_11',
 		'bioclim_12','bioclim_13','bioclim_14','bioclim_15','bioclim_16','bioclim_17',
 		'bioclim_18','bioclim_19')]); gc() #bind as a matrix
-    return(out[, vois])
+    return(out)
 }
 
