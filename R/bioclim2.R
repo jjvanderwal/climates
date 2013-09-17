@@ -37,7 +37,7 @@ bioclim2=function (tmin = NULL, tmax = NULL, prec = NULL, tmean = NULL, cov = FA
 	tmin=loaddata(tmin) #deal with tmin
 	out$bioclim_06 = .Call('rowMin',tmin) # 6 Min Temperature of Coldest month
 	tmax=loaddata(tmax) #deal with tmax
-	out$bioclim_05 = .Call('rowMax',tmin) # 5 Max Temperature of Warmest month
+	out$bioclim_05 = .Call('rowMax',tmax) # 5 Max Temperature of Warmest month
 	out$bioclim_07 = out$bioclim_05 - out$bioclim_06 # 7 Temperature Annual Range (5-6)
 	out$bioclim_02 = .Call('createBio02',tmax,tmin) # 2 Mean Diurnal Range(Mean(month max-min))
 	out$bioclim_03 = out$bioclim_02 / out$bioclim_07 # 3 Isothermality 2/7
