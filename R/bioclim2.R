@@ -28,10 +28,6 @@ bioclim2=function (tmin = NULL, tmax = NULL, prec = NULL, tmean = NULL, cov = FA
 		return(x)
 	}
 
-	
-	#R CMD SHLIB /home/jc165798/SCRIPTS/R_package_dev/climates/src/bioclimate.c
-	dyn.load("/home/jc165798/SCRIPTS/R_package_dev/climates/src/bioclimate.so") #load the c functions into memory
-
 	#start creating bioclim variables
 	out=list() #define the output
 	tmin=loaddata(tmin) #deal with tmin
