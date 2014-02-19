@@ -69,7 +69,7 @@ bioclim=function (tmin = NULL, tmax = NULL, prec = NULL, tmean = NULL,
     if (any(vois %in% c(6, 3, 7))) { # 6 Min Temperature of Coldest week/month
         out[, 6] = apply(tmin, 1, function(x) {return(min(x, na.rm = T))})
     }
-    if (any(vois == 7))  # 7 Temperature Annual Range (5-6)
+    if (any(vois %in% c(3, 7)))  # 7 Temperature Annual Range (5-6)
         out[, 7] = out[, 5] - out[, 6]
     if (any(vois == 3))  # 3 Isothermality 2/7
         out[, 3] = out[, 2]/out[, 7]
