@@ -37,6 +37,7 @@
           \item{prj}
             A proj4 string for the x/y coordinates for use in creating a SpatialPixelsDataFrame.
 }
+}
 
 \author{ David Blodgett \email{dblodgett@usgs.gov} }
 
@@ -55,7 +56,7 @@ CF_bbox_grid(x_vals,y_vals,bbox_in)
 
 Using sample data that is projected:
 
-data('CF_bbox_grid_example.Rdata')
+data('CF_bbox_grid_example.RData')
 bbox_indices<-CF_bbox_grid(x_vals,y_vals,bbox_in,grid_mapping_name,grid_mapping_atts)
 
 }
