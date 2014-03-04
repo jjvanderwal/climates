@@ -30,10 +30,8 @@
             Index position on the x (or longitude) axis for the maximum latitude.
           \item{y2}
             Index position on the y (or latitude) axis for the maximum longitude.
-          \item{x_index}
-            The values of the x coordinate variable for the subset of the grid that satisfies the bounding box.
-          \item{y_index}
-            The values of the y coordinate variable for the subset of the grid that satisfies the bounding box.
+          \item{coords_master}
+            The coordinates of the subset grid prepared for creation of an sp SpatialPoints object.
           \item{prj}
             A proj4 string for the x/y coordinates for use in creating a SpatialPixelsDataFrame.
 }

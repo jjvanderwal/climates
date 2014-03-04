@@ -118,5 +118,14 @@ CF_bbox_grid<-function(x_vals,y_vals,bbox_in,grid_mapping_name=NULL,grid_mapping
     x2<-lon2_index
     y2<-lat2_index
   }
-  return(list(x1=x1,y1=y1,x2=x2,y2=y2,x_index=x_index,y_index=y_index,prj=prj))
+  # Check for regular grid.
+  dif_xs = mean(diff(x_index))
+  dif_ys = mean(diff(y_index))
+  if (abs(abs(dif_ys)-abs(dif_xs))>0.00001) stop('The data source appears to be an irregular grid, this datatype is not supported.')
+  
+  # Create x/y points for cells for geotiff files to be written.
+  coords_master <- array(dim=c(length(x_index)*length(y_index),2))
+  coords_master[,1]<-rep(rev(x_index)+dif_ys/2,length(y_index))
+  coords_master[,2]<-rep(rev(y_index)-dif_ys/2,each=length(x_index))
+  return(list(x1=x1,y1=y1,x2=x2,y2=y2,coords_master=coords_master,prj=prj))
 }
