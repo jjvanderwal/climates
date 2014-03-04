@@ -49,7 +49,7 @@ CF_date_range(time_units, time_dim, start, end)
 
 Using sample data:
 
-data('CF_date_range_example.RData')
+data(CF_date_range_example, package='climates')
 CF_date_range(time_units, time_dim, start, end)
 
 }

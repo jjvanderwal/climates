@@ -6,8 +6,7 @@ Date: 2014-02-20
 Author: Jeremy VanDerWal, Linda Beaumont, Nicholas Zimmerman, Patrick Lorch
 Maintainer: Jeremy VanDerWal <jjvanderwal@gmail.com>
 Suggests: ncdf, SDMTools, raster, clim.pact
-Imports: rgdal
-Depends: chron, zoo
+Depends: sp, rgdal, chron, zoo
 Description: Methods for working with, downscaling climate, recreating bioclim variables, extracting extreme event information, etc.
 License: GPL version 2 or newer
 LazyLoad: yes

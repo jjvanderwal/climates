@@ -44,7 +44,6 @@
 Using ncdf4 and remote data:
 
 library("ncdf4")
-library("rgdal")
 bbox_in <- c(-87,41,-89,43)
 OPeNDAP_URI<-"http://cida.usgs.gov/thredds/dodsC/prism"
 ncdf4_handle <- nc_open(OPeNDAP_URI)
@@ -54,7 +53,7 @@ CF_bbox_grid(x_vals,y_vals,bbox_in)
 
 Using sample data that is projected:
 
-data('CF_bbox_grid_example.RData')
+data(CF_bbox_grid_example, package='climates')
 bbox_indices<-CF_bbox_grid(x_vals,y_vals,bbox_in,grid_mapping_name,grid_mapping_atts)
 
 }
