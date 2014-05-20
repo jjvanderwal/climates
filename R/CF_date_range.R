@@ -1,6 +1,5 @@
 CF_date_range<-function(time_units, time_dim, start, end)
-{
-  
+{  
   time_step<-time_units[1]
   date_origin<-time_units[3]
   time_origin<-"00:00:00"
@@ -20,5 +19,7 @@ CF_date_range<-function(time_units, time_dim, start, end)
   t_ind1 <- min(which(abs(time_dim-t_1)==min(abs(time_dim-t_1))))
   t_ind2 <- max(which(abs(time_dim-t_2)==min(abs(time_dim-t_2))))
   time<-time_dim[t_ind1:(t_ind2-1)]
-  return(list(t_ind1=t_ind1, t_ind2=t_ind2, time=time, origin=chron_origin))
+  time_posix=chron(time,origin=chron_origin,out.format="month/day/year")
+  time_posix=strptime(time_posix,"%B/%d/%Y")
+  return(list(t_ind1=t_ind1, t_ind2=t_ind2, time=time, origin=chron_origin, time_posix=time_posix))
 }
