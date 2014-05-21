@@ -1,4 +1,4 @@
-daily_indices=function (tmin = NULL, tmax = NULL, prec = NULL, tmean = NULL, thresholds=NULL) 
+daily_indices=function (tmin = NULL, tmax = NULL, prec = NULL, tmean = NULL, thresholds=NULL, time_PCICt=NULL) 
 {
   # Fuctions that calculate all or subsets of 9 daily climate indices. 1) days with tmax above. 2) days with tmin below
   # 3) days with precip above 4) Longest run with precip above 5) longest run with precip below 6) growing degree days
@@ -13,8 +13,10 @@ daily_indices=function (tmin = NULL, tmax = NULL, prec = NULL, tmean = NULL, thr
     if (is.null(datum))
       stop(paste(datum.name,"is needed for the variables selected"))
     else if (is.data.frame(datum) | is.matrix(datum)) {
-      if (!(dim(datum)[1] %in% c(365, 366))) # check for correct number of columns
-        stop(paste(datum.name,"must have 365 or 366 columns"))
+      if (dim(datum)[1] < 360) # check for correct number of columns
+        stop(paste(datum.name,"must be a full year of data and not more than a full year of data."))
+      if (dim(datum)[1] > 366)
+        stop(paste(datum.name,"must be a full year of data and not more than a full year of data."))
     }
     else 
       stop(paste(datum.name,"must be a data.frame or matrix"))

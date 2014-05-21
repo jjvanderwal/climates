@@ -1,6 +1,6 @@
 daily2monthly<-function(daily_data, time, origin_in, cells=NULL)
 {
-  if (is.null(cells)) cells<-nrow(daily_data)*ncol(daily_data)
+  if (is.null(cells)) cells<-ncol(daily_data)
   time<-chron(time,out.format=c(dates="year-m-day"),origin=origin_in)
   daily_data<-zoo(daily_data,time)
   daily_data<-aggregate(daily_data, as.yearmon, mean)
