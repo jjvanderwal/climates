@@ -6,7 +6,7 @@
 \description{
 	\code{bioclim2} recreates the standard 19 bioclimatic variables (BIOCLIM), as does related command \code{bioclim}, that were orginally generated using ANUCLIM \url{http://fennerschool.anu.edu.au/publications/software/anuclim.php} or used by Worldclim \url{http://www.worldclim.org/}. \cr \cr
 	These measures are described below but include annual and quarterly summaries of temperature and precipitation.\cr \cr
-	\bold{NOTE:} the key differences between this and \code{bioclim} is that: \cr\tab 1. this is much faster due to C implementation;\cr\tab  2. this can only use monthly data;\cr\tab 3. will only generate all 19 variables; and\cr\tab 4. can use file names rather than objects in R to save on memory (not all things need to be loaded into memory at once).\cr \cr
+	\bold{NOTE:} the key differences between this and \code{bioclim} is that: \cr 1. this is much faster due to C implementation;\cr  2. this can only use monthly data;\cr 3. will only generate all 19 variables; and\cr 4. can use file names rather than objects in R to save on memory (not all things need to be loaded into memory at once).\cr \cr
 	!!!ASSUMES no missing data!!!
 }
 
