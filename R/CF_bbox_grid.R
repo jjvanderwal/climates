@@ -14,7 +14,9 @@ CF_bbox_grid<-function(x_vals,y_vals,bbox_in,grid_mapping_name=NULL,grid_mapping
       false_northing<-grid_mapping_atts$false_northing
       longitude_of_prime_meridian<-grid_mapping_atts$longitude_of_prime_meridian
       semi_major_axis<-grid_mapping_atts$semi_major_axis
+      if (is.null(semi_major_axis)) { semi_major_axis<-6378137.0 }
       inverse_flattening<-grid_mapping_atts$inverse_flattening
+      if (is.null(inverse_flattening)) { inverse_flattening<-298.257223563 }
       # Can have two or one standard parallels. Based on this, create a proj4 string.
       if (length(standard_parallel==2))
       {
