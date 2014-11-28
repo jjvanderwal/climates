@@ -90,7 +90,7 @@ daily_indices=function (tmin = NULL, tmax = NULL, prec = NULL, tmean = NULL, thr
   
   for (growing_degree_day_thresh in thresholds$growing_degree_day_thresh)
   {
-    colnames(out)[stat]=paste("growing_degree_days",growing_degree_day_thresh,"C",sep="_")
+    colnames(out)[stat]=paste("growing_degree_day",growing_degree_day_thresh,"C",sep="_")
     out[,stat]<-apply(tmean, 2, growing_degree_days_fun, growing_degree_day_thresh=growing_degree_day_thresh)
     stat=stat+1
   }
@@ -99,7 +99,7 @@ daily_indices=function (tmin = NULL, tmax = NULL, prec = NULL, tmean = NULL, thr
   
   for (heating_degree_day_thresh in thresholds$heating_degree_day_thresh)
   {
-    colnames(out)[stat]=paste("heating_degree_days",heating_degree_day_thresh,"C",sep="_")
+    colnames(out)[stat]=paste("heating_degree_day",heating_degree_day_thresh,"C",sep="_")
     out[,stat]<-apply(tmean, 2, heating_degree_days_fun,heating_degree_day_thresh=heating_degree_day_thresh)
     stat=stat+1
   }
@@ -108,7 +108,7 @@ daily_indices=function (tmin = NULL, tmax = NULL, prec = NULL, tmean = NULL, thr
   
   for (cooling_degree_day_thresh in thresholds$cooling_degree_day_thresh)
   {
-    colnames(out)[stat]=paste("cooling_degree_days",cooling_degree_day_thresh,"C",sep="_")
+    colnames(out)[stat]=paste("cooling_degree_day",cooling_degree_day_thresh,"C",sep="_")
     out[,stat]<-apply(tmean, 2, cooling_degree_days_fun,cooling_degree_day_thresh=cooling_degree_day_thresh)
     stat=stat+1
   }
