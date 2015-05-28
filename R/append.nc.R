@@ -10,9 +10,7 @@
 #' 
 #' @param nc1 %% ~~Describe \code{nc1} here~~
 #' @param nc2 %% ~~Describe \code{nc2} here~~
-#' @return %% ~Describe the value returned %% If it is a LIST, use %%
-#' \item{comp1 }{Description of 'comp1'} %% \item{comp2 }{Description of
-#' 'comp2'} %% ...
+#' @return ...
 #' @note %% ~~further notes~~
 #' @author %% ~~who you are~~
 #' @seealso %% ~~objects to See Also as \code{\link{help}}, ~~~
