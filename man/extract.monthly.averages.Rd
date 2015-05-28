@@ -7,23 +7,23 @@
 extract.monthly.averages(nc, min.year, max.year)
 }
 \arguments{
-\item{nc}{%% ~~Describe \code{nc} here~~}
+\item{nc}{~~Describe \code{nc} here~~}
 
-\item{min.year}{%% ~~Describe \code{min.year} here~~}
+\item{min.year}{~~Describe \code{min.year} here~~}
 
-\item{max.year}{%% ~~Describe \code{max.year} here~~}
+\item{max.year}{~~Describe \code{max.year} here~~}
 }
 \value{
 ...
 }
 \description{
-%% ~~ A concise (1-5 lines) description of what the function does. ~~
+~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \details{
-%% ~~ If necessary, more details than the description above ~~
+~~ If necessary, more details than the description above ~~
 }
 \note{
-%% ~~further notes~~
+~~further notes~~
 }
 \examples{
 ##---- Should be DIRECTLY executable !! ----
@@ -52,13 +52,13 @@ function(nc,min.year,max.year) {
   }
 }
 \author{
-%% ~~who you are~~
+~~who you are~~
 }
 \references{
-%% ~put references to the literature/web site here ~
+~put references to the literature/web site here ~
 }
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+~~objects to See Also as \code{\link{help}}, ~~~
 }
 \keyword{~kwd1}
 \keyword{~kwd2}

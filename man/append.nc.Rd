@@ -7,21 +7,21 @@
 append.nc(nc1, nc2)
 }
 \arguments{
-\item{nc1}{%% ~~Describe \code{nc1} here~~}
+\item{nc1}{~~Describe \code{nc1} here~~}
 
-\item{nc2}{%% ~~Describe \code{nc2} here~~}
+\item{nc2}{~~Describe \code{nc2} here~~}
 }
 \value{
 ...
 }
 \description{
-%% ~~ A concise (1-5 lines) description of what the function does. ~~
+~~ A concise (1-5 lines) description of what the function does. ~~
 }
 \details{
-%% ~~ If necessary, more details than the description above ~~
+~~ If necessary, more details than the description above ~~
 }
 \note{
-%% ~~further notes~~
+~~further notes~~
 }
 \examples{
 ##---- Should be DIRECTLY executable !! ----
@@ -51,13 +51,13 @@ function(nc1,nc2) {
   }
 }
 \author{
-%% ~~who you are~~
+~~who you are~~
 }
 \references{
-%% ~put references to the literature/web site here ~
+~put references to the literature/web site here ~
 }
 \seealso{
-%% ~~objects to See Also as \code{\link{help}}, ~~~
+~~objects to See Also as \code{\link{help}}, ~~~
 }
 \keyword{~kwd1}
 \keyword{~kwd2}
