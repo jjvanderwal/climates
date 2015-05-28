@@ -85,7 +85,7 @@ daily_indices=function (tmin = NULL, tmax = NULL, prec = NULL, tmean = NULL, thr
     stat=stat+1
   }
   
-  trunc_0 <- function(x) { x[x<0] <- 0; x }
+  trunc_0 <- function(x) { x[x<0] <- 0; x[is.na(x)] <- 0; x }
   growing_degree_days_fun <- function(tave, growing_degree_day_thresh=10) { degree_days_out <- sum(trunc_0(tave-growing_degree_day_thresh)); degree_days_out}
   
   for (growing_degree_day_thresh in thresholds$growing_degree_day_thresh)
