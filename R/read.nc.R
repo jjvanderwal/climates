@@ -67,6 +67,7 @@
 #' @references Rasmus E. Benestad (2010). clim.pact: Climate analysis and
 #' empirical-statistical downscaling (ESD) package for monthly and daily data..
 #' R package version 2.2-41. \url{http://CRAN.R-project.org/package=clim.pact}
+#' @export
 #' @examples
 #'  #need to fill in 
 read.nc <- function (filename = file.path("data", "air.mon.mean.nc"), v.nam = "AUTO", 

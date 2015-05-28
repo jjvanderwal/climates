@@ -17,7 +17,6 @@
 #' @param temp_unit_func function returned by init_dap function
 #' @param Cells that are NA in only some time steps will be filled with the average of their neighbors.
 #' @return A named list of data according to inputs.
-#' @importFrom ncdf4 ncvar_get 
 #' @export
 #' @examples
 #' Soon!

@@ -18,6 +18,7 @@
 #'  \item{'origin'}{The calendar origin for use as the 'origin' input to chron. }
 #'  }
 #' @author David Blodgett \email{dblodgett@@usgs.gov}
+#' @export
 #' @examples
 #' 
 #' 

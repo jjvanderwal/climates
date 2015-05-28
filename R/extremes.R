@@ -29,6 +29,7 @@
 #' @author Patrick D. Lorch \email{plorch@@kent.edu}
 #' @seealso \code{\link{bioclim.Rd}}
 #' @keywords extremes
+#' @export
 #' @examples
 #' 
 #' # Need to fill in to match bioclim example

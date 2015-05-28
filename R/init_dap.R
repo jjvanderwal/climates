@@ -8,7 +8,6 @@
 #' @param tmin_var a string of the tmin variable id
 #' @param prcp_var a string of the prcp variable id
 #' @return ncdf4_init a named list of an ncdf4 object and a temperature conversion function.
-#' @importFrom ncdf4 nc_open
 #' @export
 #' @examples
 #' Soon!

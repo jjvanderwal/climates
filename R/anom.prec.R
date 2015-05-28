@@ -27,6 +27,7 @@
 #' @author Jeremy VanDerWal \email{jjvanderwal@@gmail.com}
 #' @seealso \code{\link{anom.temp}}, \code{\link{retrieve.nc}},
 #' \code{\link{extract.monthly.average}}, \code{\link{append.nc}}
+#' @export
 #' @examples
 #'  ##need to fill in 
 anom.prec <- 

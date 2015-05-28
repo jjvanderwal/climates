@@ -26,6 +26,7 @@
 #' @author Jeremy VanDerWal \email{jjvanderwal@@gmail.com}
 #' @seealso \code{\link{anom.prec}}, \code{\link{retrieve.nc}},
 #' \code{\link{extract.monthly.average}}, \code{\link{append.nc}}
+#' @export
 #' @examples
 #'  ##need to fill in 
 anom.temp = function(nc1,nc2) { #temperature of future (nc2) - temperature of current (nc1)

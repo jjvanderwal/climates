@@ -14,8 +14,6 @@
 #' @param tave_var optional: a string of the tave variable id
 #' @return A list of filenames that have been written to disk.
 #' @export
-#' @importFrom climates bioclim2geotiff
-#' @importFrom climates daily2monthly
 #' @examples
 #' Soon!
 #' 

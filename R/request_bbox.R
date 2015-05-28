@@ -7,8 +7,6 @@
 #' @param rep_var a variable in the necdf4 source that is representative.
 #' @param bbox_in a bounding box to be passwed to CF_bbox_grid.
 #' @return bbox_indices a set of indices from the source dataset for the bounding box.
-#' @importFrom climates CF_bbox_grid
-#' @importFrom ncdf4 ncatt_get
 #' @export
 #' @examples
 #' Soon!

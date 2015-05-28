@@ -15,7 +15,6 @@
 #' @param NetCDF_output: Set to TRUE if NetCDF files are desired as output, otherwise will be geotiff.
 #' @param Cells that are NA in only some time steps will be filled with the average of their neighbors.
 #' @return A list of filenames that have been written to disk.
-#' @importFrom climates daily_indices2geotiff
 #' @export
 #' @examples
 #' Soon!

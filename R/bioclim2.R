@@ -91,6 +91,7 @@
 #' number of rows(and order of them) the same as the input \code{tmin},
 #' \code{tmax}, \code{prec} or \code{tmean}.
 #' @author Jeremy VanDerWal \email{jjvanderwal@@gmail.com}
+#' @export
 #' @examples
 #' 
 #' 

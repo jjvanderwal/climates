@@ -32,6 +32,7 @@
 #' @return Returns a matrix of the originating class.
 #' @author Jeremy VanDerWal \email{jjvanderwal@@gmail.com}
 #' @seealso \code{\link{interp2pnt}}
+#' @export
 #' @examples
 #' 
 #' 
