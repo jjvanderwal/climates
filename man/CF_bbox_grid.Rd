@@ -21,14 +21,14 @@ WGS84 Lat/Lon is assumes given no Grid Mapping.}
 as returned by ncdf or ncdf4's get attributes functions.}
 }
 \value{
-A named list containing the following variables \enumerate{ \itemx1
-Index position on the x (or longitude) axis for the minimum longitude.
-\itemy1 Index position on the y (or latitude) axis for the minimum latitude.
-\itemx2 Index position on the x (or longitude) axis for the maximum
-latitude.  \itemy2 Index position on the y (or latitude) axis for the
-maximum longitude.  \itemcoords_master The coordinates of the subset grid
-prepared for creation of an sp SpatialPoints object.  \itemprj A proj4
-string for the x/y coordinates for use in creating a SpatialPixelsDataFrame.
+A named list containing the following variables
+\enumerate{
+ \item{'x1'}{Index position on the x (or longitude) axis for the minimum longitude.}
+ \item{'y1'}{Index position on the y (or latitude) axis for the minimum latitude.}
+ \item{'x2'}{Index position on the x (or longitude) axis for the maximum latitude.}
+ \item{'y2'}{Index position on the y (or latitude) axis for the maximum longitude.}
+ \item{'coords_master'}{The coordinates of the subset grid prepared for creation of an sp SpatialPoints object.}
+ \item{'prj'}{A proj4 string for the x/y coordinates for use in creating a SpatialPixelsDataFrame.}
 }
 }
 \description{

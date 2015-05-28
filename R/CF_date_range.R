@@ -10,11 +10,13 @@
 #' @param time_dim The values of a netCDF time coordinate variable.
 #' @param start A four digit year to get the starting index for.
 #' @param end A four digit year to get the ending index for.
-#' @return A named list containing the following variables \enumerate{
-#' \itemt_ind1 Index position for the first value in the start year.
-#' \itemt_ind2 Index position for the last value of the end year.  \itemtime
-#' Values of the time coordinate variable for the requested period.
-#' \itemorigin The calendar origin for use as the 'origin' input to chron. }
+#' @return A named list containing the following variables 
+#' \enumerate{
+#'  \item{'t_ind1'}{Index position for the first value in the start year.}
+#'  \item{'t_ind2'}{Index position for the last value of the end year.  }
+#'  \item{'time'}{Values of the time coordinate variable for the requested period.}
+#'  \item{'origin'}{The calendar origin for use as the 'origin' input to chron. }
+#'  }
 #' @author David Blodgett \email{dblodgett@@usgs.gov}
 #' @examples
 #' 
