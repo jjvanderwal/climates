@@ -28,6 +28,7 @@
 #' number of rows(and order of them) the same as the input \code{tmin},
 #' \code{tmax}, \code{prec} or \code{tmean}.
 #' @author David Blodgett \email{dblodgett@@usgs.gov}
+#' @export
 #' @examples
 #' 
 #' 

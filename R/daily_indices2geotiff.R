@@ -27,6 +27,7 @@
 #' @param year A year to use in labeling the output file.
 #' @return A character vector of the files that were created.
 #' @author David Blodgett \email{dblodgett@@usgs.gov}
+#' @export
 #' @examples
 #' 
 #' 
