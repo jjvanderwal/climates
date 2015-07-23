@@ -15,7 +15,7 @@
 #' @examples
 #' Soon!
 #' 
-initialize_NetCDF<-function(ncdf4_handle, thresholds, start=FALSE, end=FALSE, tmax_var=FALSE, prcp_var=FALSE, x_vals, y_vals, periods=FALSE, t_units=FALSE, p_units=FALSE){
+initialize_NetCDF<-function(ncdf4_handle, thresholds, start=FALSE, end=FALSE, tmax_var=FALSE, prcp_var=FALSE, x_vals, y_vals, periods=list(), t_units=FALSE, p_units=FALSE){
   # Create shell of a netCDF file.
   latDim<-ncdim_def('lat','degrees_north',y_vals,longname='lat')
   lonDim<-ncdim_def('lon','degrees_east',x_vals,longname='lon')
@@ -27,7 +27,7 @@ initialize_NetCDF<-function(ncdf4_handle, thresholds, start=FALSE, end=FALSE, tm
     fileNames<-append(fileNames,fileName)
     #Create Time Coordinate Variables
     time_units<-get_time_dim(ncdf4_handle)$time_units
-    if(periods==FALSE){
+    if(length(periods)==0){
       time_var<-c(1:(as.numeric(end)-as.numeric(start)))
       time_bounds_2<-c(1:(as.numeric(end)-as.numeric(start)))
       ind=1
