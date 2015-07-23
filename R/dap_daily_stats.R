@@ -95,7 +95,7 @@ dap_daily_stats<-function(start,end,bbox_in,thresholds,OPeNDAP_URI,tmax_var,tmin
         }
         # Put data into NetCDF file at the appropriate year position.
         t<-ncvar_put(ncdf_handle,stat,as.integer(ncdf_data),c(1,1,1,year_id),c(-1,-1,-1,1))
-        t<-ncvar_put(ncdf_handle,'threshold',as.integer(ncdf_threshholds))
+        t<-ncvar_put(ncdf_handle,'threshold',ncdf_threshholds)
         t<-nc_close(ncdf_handle)
       }
       year_id<-year_id+1
