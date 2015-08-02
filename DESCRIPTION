@@ -5,8 +5,8 @@ Version: 0.1-1.6
 Date: 2014-03-04
 Author: Jeremy VanDerWal, Linda Beaumont, Nicholas Zimmerman, Patrick Lorch, David Blodgett
 Maintainer: Jeremy VanDerWal <jjvanderwal@gmail.com>
-Suggests: ncdf, SDMTools, raster, clim.pact, ncdf4
-Depends: sp, rgdal, chron, zoo, climdex.pcic, PCICt
+Suggests: ncdf, SDMTools, raster, clim.pact, ncdf4, sp, rgdal
+Depends: chron, zoo, climdex.pcic, PCICt
 Description: Methods for working with, downscaling climate, recreating bioclim variables, extracting extreme event information, etc.
 License: GPL version 2 or newer
 LazyLoad: yes
