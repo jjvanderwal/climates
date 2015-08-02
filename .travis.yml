@@ -4,6 +4,8 @@
 # see the wiki:
 #   https://github.com/craigcitro/r-travis/wiki
 
+sudo: true
+
 language: r
 
 before_install:
