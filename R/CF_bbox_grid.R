@@ -26,6 +26,11 @@
 #'  \item{'prj'}{A proj4 string for the x/y coordinates for use in creating a SpatialPixelsDataFrame.}
 #' }
 #' @author David Blodgett \email{dblodgett@@usgs.gov}
+#' @importFrom sp coordinates<-
+#' @importFrom sp coordinates
+#' @importFrom sp proj4string<-
+#' @importFrom sp CRS
+#' @importFrom sp spTransform
 #' @export
 #' @examples
 #' 
