@@ -13,6 +13,7 @@
 #' @param cells The number of cells in the daily_data matrix. Optional.
 #' @return The data converted to monthly resolution.
 #' @author David Blodgett \email{dblodgett@@usgs.gov}
+#' @importFrom zoo zoo as.yearmon fortify.zoo
 #' @export
 #' @examples
 #' 
