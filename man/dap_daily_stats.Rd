@@ -43,4 +43,7 @@ It returns a list of geotiff filenames that have been written to the current wor
 start <- "2090"
 }
 }
+\author{
+David Blodgett \email{dblodgett@usgs.gov}
+}
 
