@@ -13,7 +13,7 @@ env:
      - CRAN: http://cran.rstudio.com
      - R_BUILD_ARGS="--no-build-vignettes --no-manual"
      - R_CHECK_ARGS="--no-build-vignettes --no-manual --as-cran"
-     - _R_CHECK_FORCE_SUGGESTS="false"
+     - _R_CHECK_FORCE_SUGGESTS_=FALSE
      - BOOTSTRAP_LATEX=""
      - NOT_CRAN="true"
 
