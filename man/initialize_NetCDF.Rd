@@ -5,7 +5,7 @@
 \title{A function to initialize a NetCDF file for daily indices.}
 \usage{
 initialize_NetCDF(ncdf4_handle, thresholds, start = FALSE, end = FALSE,
-  tmax_var = FALSE, prcp_var = FALSE, x_vals, y_vals, periods = FALSE,
+  tmax_var = FALSE, prcp_var = FALSE, x_vals, y_vals, periods = list(),
   t_units = FALSE, p_units = FALSE)
 }
 \arguments{
@@ -31,6 +31,8 @@ This function initializes a set of NetCDF files for daily_indices. If start and 
 If period is given, it creates time steps that span the years given in period. It returns a set of file names and the x/y coordinates.
 }
 \examples{
+\dontrun{
 Soon!
+}
 }
 

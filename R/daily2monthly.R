@@ -16,10 +16,10 @@
 #' @export
 #' @examples
 #' 
-#' 
+#' \dontrun{
 #' data(daily2monthly_example, package='climates')
 #' tmax_data<-daily2monthly(tmax_data, time_indices, origin, cells)
-#' 
+#' }
 #' 
 daily2monthly<-function(daily_data, time, origin_in, cells=NULL)
 {

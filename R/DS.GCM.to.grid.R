@@ -22,7 +22,7 @@
 #' @keywords ~kwd1 ~kwd2
 #' @export
 #' @examples
-#' 
+#' \dontrun{
 #' ##---- Should be DIRECTLY executable !! ----
 #' ##-- ==>  Define data, use random,
 #' ##--	or do  help(data=index)  for the standard data sets.
@@ -39,6 +39,7 @@
 #' 	for (ii in 1:length(nc$tim)) { out[ii,,] = interp2grid(nc$dat[ii,,],lon,lat,nc$lon,nc$lat,type=type) }
 #' 	return(list(dat=out,lon=lon,lat=lat,tim=nc$tim))
 #'   }
+#' }
 #' 
 DS.GCM.to.grid = function(nc,lon=c(-180,180),lat=c(-90,90),cellsize=0.2,type=2) {
 	#ensure nc is from retrieve.nc or similar

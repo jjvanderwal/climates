@@ -21,7 +21,8 @@
 #' @export
 #' @examples
 #' 
-#' 
+#' \dontrun{
+#' \dontrun{
 #' Using ncdf4 and remote data:
 #' 
 #' library("ncdf4")
@@ -37,8 +38,8 @@
 #' 
 #' data(CF_date_range_example, package='climates')
 #' CF_date_range(time_units, time_dim, start, end)
-#' 
-#' 
+#' }
+#' }
 CF_date_range<-function(time_units, time_dim, start, end)
 {  
   time_step<-time_units[1]

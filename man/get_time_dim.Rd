@@ -17,6 +17,8 @@ This function takes an open ncdf4 data source.
 It returns the time units and time dimension.
 }
 \examples{
+\dontrun{
 Soon!
+}
 }
 

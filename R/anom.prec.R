@@ -29,7 +29,9 @@
 #' \code{\link{extract.monthly.average}}, \code{\link{append.nc}}
 #' @export
 #' @examples
+#' \dontrun{
 #'  ##need to fill in 
+#'  }
 anom.prec <- 
 function(nc1,nc2) { #precipitation of future (nc2) as a proportion of current (nc1)
 	#ensure nc1 & nc2 are from retrieve.nc

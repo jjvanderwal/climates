@@ -35,7 +35,7 @@
 #' @seealso \code{\link{interp2grid}}
 #' @export
 #' @examples
-#' 
+#' \dontrun{
 #' 
 #' #create some data
 #' tx = seq(0,3,0.1)
@@ -52,7 +52,7 @@
 #' 
 #' #look at the data
 #' head(txy)
-#' 
+#' }
 #' 
 interp2pnt <-
 function(mat,xout,yout,xin=NULL,yin=NULL,type=2) {

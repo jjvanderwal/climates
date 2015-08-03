@@ -28,7 +28,9 @@
 #' \code{\link{extract.monthly.average}}, \code{\link{append.nc}}
 #' @export
 #' @examples
+#' \dontrun{
 #'  ##need to fill in 
+#'  }
 anom.temp = function(nc1,nc2) { #temperature of future (nc2) - temperature of current (nc1)
 	#ensure nc1 & nc2 are from retrieve.nc
 	if (all(c('dat','tim','lat', 'lon') %in% names(nc1))==FALSE) stop('nc1 must have objects named dat, lat, lon and tim as from retrieve.nc of clim.pact package, append.nc or extract.monthly.averages')

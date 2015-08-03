@@ -94,10 +94,9 @@
 #' @useDynLib climates
 #' @export
 #' @examples
-#' 
-#' 
+#' \dontrun{
 #' #need to fill in
-#' 
+#' }
 #' 
 bioclim=function (tmin = NULL, tmax = NULL, prec = NULL, tmean = NULL,
     vois = 1:19, cov = FALSE, t.as.int = TRUE, period = "month") 

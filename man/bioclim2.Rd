@@ -109,7 +109,9 @@ is determined (to the nearest week), and the total precipitation over this
 period is calculated.  }
 }
 \examples{
+\dontrun{
 #need to fill in
+}
 }
 \author{
 Jeremy VanDerWal \email{jjvanderwal@gmail.com}

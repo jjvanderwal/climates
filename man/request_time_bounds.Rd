@@ -21,6 +21,8 @@ This function takes an open ncdf4 data source, a start date and an end date.
 It returns a named list per CF_date_range.
 }
 \examples{
+\dontrun{
 Soon!
+}
 }
 

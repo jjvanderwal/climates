@@ -26,6 +26,7 @@ extract.monthly.averages(nc, min.year, max.year)
 ~~further notes~~
 }
 \examples{
+\dontrun{
 ##---- Should be DIRECTLY executable !! ----
 ##-- ==>  Define data, use random,
 ##--	or do  help(data=index)  for the standard data sets.
@@ -50,6 +51,7 @@ function(nc,min.year,max.year) {
 	#return the information
 	return(list(dat=out.data,lon=lon,lat=lat,tim=mm))
   }
+}
 }
 \author{
 ~~who you are~~

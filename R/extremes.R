@@ -31,7 +31,7 @@
 #' @keywords extremes
 #' @export
 #' @examples
-#' 
+#' \dontrun{
 #' # Need to fill in to match bioclim example
 #' 
 #' ##---- Should be DIRECTLY executable !! ----
@@ -108,7 +108,7 @@
 #' 	colnames(out) = c("Warmest","Coldest","Wettest","Driest")
 #' 	return(out)
 #'   }
-#' 
+#' }
 extremes=function(tmin = NULL, tmax = NULL, prec = NULL, tmean = NULL, period = "month",tiebreak="first")
 {
 # 	This function finds the warmest, wettest, coldest, driest periods for each location

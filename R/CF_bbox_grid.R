@@ -29,7 +29,7 @@
 #' @export
 #' @examples
 #' 
-#' 
+#' \dontrun{
 #' Using ncdf4 and remote data:
 #' 
 #' library("ncdf4")
@@ -44,7 +44,7 @@
 #' 
 #' data(CF_bbox_grid_example, package='climates')
 #' bbox_indices<-CF_bbox_grid(x_vals,y_vals,bbox_in,grid_mapping_name,grid_mapping_atts)
-#' 
+#' }
 #' 
 CF_bbox_grid<-function(x_vals,y_vals,bbox_in,grid_mapping_name=NULL,grid_mapping_atts=NULL)
 {

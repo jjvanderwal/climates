@@ -17,7 +17,7 @@
 #' @keywords ~kwd1 ~kwd2
 #' @export
 #' @examples
-#' 
+#' \dontrun{
 #' ##---- Should be DIRECTLY executable !! ----
 #' ##-- ==>  Define data, use random,
 #' ##--	or do  help(data=index)  for the standard data sets.
@@ -30,6 +30,7 @@
 #' 	out = expand.grid(lon = nc$lon,lat = nc$lat)
 #' 	for (tim in nc$tim) out[[paste('tim.',tim,sep='')]] = as.vector(nc$dat[tim,,])
 #' 	return(out)
+#'   }
 #'   }
 #' 
 nc2dataframe <- 

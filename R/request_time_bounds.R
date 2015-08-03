@@ -9,8 +9,9 @@
 #' @return time_indices a named list per CF_date_range.
 #' @export
 #' @examples
+#' \dontrun{
 #' Soon!
-#' 
+#' }
 request_time_bounds<-function(ncdf4_handle,start,end)
 {
   td<-get_time_dim(ncdf4_handle)

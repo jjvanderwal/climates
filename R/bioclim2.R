@@ -93,10 +93,9 @@
 #' @author Jeremy VanDerWal \email{jjvanderwal@@gmail.com}
 #' @export
 #' @examples
-#' 
-#' 
+#' \dontrun{
 #' #need to fill in
-#' 
+#' }
 #' 
 bioclim2=function (tmin = NULL, tmax = NULL, prec = NULL, tmean = NULL, cov = FALSE, files.as.inputs=TRUE) 
 {

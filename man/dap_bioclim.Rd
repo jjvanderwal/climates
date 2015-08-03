@@ -34,6 +34,8 @@ This function takes an input spatiotemporal domain and an OPeNDAP datasource.
 It returns a list of geotiff filenames that have been written to the current working directory.
 }
 \examples{
+\dontrun{
 Soon!
+}
 }
 
