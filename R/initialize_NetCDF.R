@@ -18,6 +18,15 @@
 #' }
 #' 
 initialize_NetCDF<-function(ncdf4_handle, thresholds, start=FALSE, end=FALSE, tmax_var=FALSE, prcp_var=FALSE, x_vals, y_vals, periods=list(), t_units=FALSE, p_units=FALSE){
+  if(!require("ncdf4")){
+    print("trying to install ncdf4")
+    install.packages("ncdf4")
+    if(require(ncdf4)){
+      print("ncdf4 installed and loaded")
+    } else {
+      stop("could not install ncdf4")
+    }
+  }
   # Create shell of a netCDF file.
   latDim<-ncdim_def('lat','degrees_north',y_vals,longname='lat')
   lonDim<-ncdim_def('lon','degrees_east',x_vals,longname='lon')

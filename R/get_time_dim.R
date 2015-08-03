@@ -13,6 +13,15 @@
 #' 
 get_time_dim<-function(ncdf4_handle)
 {
+  if(!require("ncdf4")){
+    print("trying to install ncdf4")
+    install.packages("ncdf4")
+    if(require(ncdf4)){
+      print("ncdf4 installed and loaded")
+    } else {
+      stop("could not install ncdf4")
+    }
+  }
   if (!is.null(ncdf4_handle$dim$time$units)) {
     time_units<-strsplit(ncdf4_handle$dim$time$units, " ")[[1]]
     time_dim<-ncdf4_handle$dim$time$vals

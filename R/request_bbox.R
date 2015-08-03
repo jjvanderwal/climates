@@ -14,6 +14,15 @@
 #' }
 request_bbox<-function(ncdf4_handle,rep_var,bbox_in) 
 {
+  if(!require("ncdf4")){
+    print("trying to install ncdf4")
+    install.packages("ncdf4")
+    if(require(ncdf4)){
+      print("ncdf4 installed and loaded")
+    } else {
+      stop("could not install ncdf4")
+    }
+  }
   grid_mapping<-ncatt_get(ncdf4_handle, rep_var,'grid_mapping')
   if (!is.null(grid_mapping) && !is.null(ncdf4_handle$dim$x$vals))
   {

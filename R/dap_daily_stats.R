@@ -42,7 +42,15 @@
 #'}
 dap_daily_stats<-function(start,end,bbox_in,thresholds,OPeNDAP_URI,tmax_var,tmin_var,tave_var,prcp_var,NetCDF_output=FALSE, fill_nas=FALSE)
 {
-  
+  if(!require("ncdf4")){
+    print("trying to install ncdf4")
+    install.packages("ncdf4")
+    if(require(ncdf4)){
+      print("ncdf4 installed and loaded")
+    } else {
+      stop("could not install ncdf4")
+    }
+  }
   te<-init_dap(OPeNDAP_URI,tmax_var,tmin_var,prcp_var, tave_var)
   ncdf4_handle<-te$ncdf4_handle; temp_unit_func<-te$temp_unit_func
   

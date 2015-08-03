@@ -29,6 +29,7 @@
 #' \code{tmax}, \code{prec} or \code{tmean}.
 #' @author David Blodgett \email{dblodgett@@usgs.gov}
 #' @export
+#' @importFrom climdex.pcic number.days.op.threshold spell.length.max growing.season.length
 #' @examples
 #' 
 #' \dontrun{
