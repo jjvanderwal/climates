@@ -42,6 +42,8 @@ This function takes an ncdf4 object, indices to request, variables to request,
 and a temperature convversion function. It returns cooresponding data.
 }
 \examples{
+\dontrun{
 Soon!
+}
 }
 

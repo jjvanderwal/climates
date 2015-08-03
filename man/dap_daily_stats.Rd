@@ -38,6 +38,9 @@ This function takes an input spatiotemporal domain and an OPeNDAP datasource.
 It returns a list of geotiff filenames that have been written to the current working directory.
 }
 \examples{
-Soon!
+\dontrun{
+# Uses this OPeNDAP dataset: http://cida.usgs.gov/thredds/dodsC/cmip5_bcca/future.html
+start <- "2090"
+}
 }
 

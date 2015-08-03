@@ -47,6 +47,8 @@ objects of class 'asc' (adehabitat package), 'RasterLayer' (raster package)
 or 'SpatialGridDataFrame' (sp package).
 }
 \examples{
+\dontrun{
+
 #create some data
 tx = seq(0,3,0.1)
 ty = seq(0,3,0.1)
@@ -62,6 +64,7 @@ txy$bicubic3 = interp2pnt(tmat,tx,ty,type=3)
 
 #look at the data
 head(txy)
+}
 }
 \author{
 Jeremy VanDerWal \email{jjvanderwal@gmail.com}

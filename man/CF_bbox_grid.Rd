@@ -43,6 +43,7 @@ This function has been tested to work with lat/lon and Lambert Conformal
 Conic grid mappings. Other grid mappings have not been implemented.
 }
 \examples{
+\dontrun{
 Using ncdf4 and remote data:
 
 library("ncdf4")
@@ -57,6 +58,7 @@ Using sample data that is projected:
 
 data(CF_bbox_grid_example, package='climates')
 bbox_indices<-CF_bbox_grid(x_vals,y_vals,bbox_in,grid_mapping_name,grid_mapping_atts)
+}
 }
 \author{
 David Blodgett \email{dblodgett@usgs.gov}

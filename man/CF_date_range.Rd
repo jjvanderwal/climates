@@ -33,6 +33,8 @@ variable and a start/end year. It returns.
 This function is only meant to work for full calendar years.
 }
 \examples{
+\dontrun{
+\dontrun{
 Using ncdf4 and remote data:
 
 library("ncdf4")
@@ -48,6 +50,8 @@ Using sample data:
 
 data(CF_date_range_example, package='climates')
 CF_date_range(time_units, time_dim, start, end)
+}
+}
 }
 \author{
 David Blodgett \email{dblodgett@usgs.gov}

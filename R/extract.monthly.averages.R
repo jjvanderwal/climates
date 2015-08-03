@@ -19,7 +19,7 @@
 #' @keywords ~kwd1 ~kwd2
 #' @export
 #' @examples
-#' 
+#' \dontrun{
 #' ##---- Should be DIRECTLY executable !! ----
 #' ##-- ==>  Define data, use random,
 #' ##--	or do  help(data=index)  for the standard data sets.
@@ -44,7 +44,7 @@
 #' 	#return the information
 #' 	return(list(dat=out.data,lon=lon,lat=lat,tim=mm))
 #'   }
-#' 
+#' }
 extract.monthly.averages <- function(nc,min.year,max.year) {
 	#ensure nc1 & nc2 are from retrieve.nc
 	if (all(c('dat','tim','yy','mm', 'lat', 'lon') %in% names(nc))==FALSE) stop('nc must have objects named dat, lat, lon, tim, yy and mm as from retrieve.nc of clim.pact package')

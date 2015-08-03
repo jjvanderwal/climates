@@ -9,8 +9,9 @@
 #' @return bbox_indices a set of indices from the source dataset for the bounding box.
 #' @export
 #' @examples
+#' \dontrun{
 #' Soon!
-#' 
+#' }
 request_bbox<-function(ncdf4_handle,rep_var,bbox_in) 
 {
   grid_mapping<-ncatt_get(ncdf4_handle, rep_var,'grid_mapping')

@@ -17,7 +17,7 @@
 #' @keywords ~kwd1 ~kwd2
 #' @export
 #' @examples
-#' 
+#' \dontrun{
 #' ##---- Should be DIRECTLY executable !! ----
 #' ##-- ==>  Define data, use random,
 #' ##--	or do  help(data=index)  for the standard data sets.
@@ -49,7 +49,7 @@
 #' 	#return the extended outa
 #' 	return(list(dat=out,lon=nc$lon,lat=nc$lat,tim=nc$tim))
 #'   }
-#' 
+#' }
 extend.global.data = function(nc) {
 	#ensure nc1 & nc2 are from retrieve.nc
 	if (all(c('dat','tim','lat', 'lon') %in% names(nc))==FALSE) stop('nc must have objects named dat, lat, lon and tim as from retrieve.nc of clim.pact package, append.nc or extract.monthly.averages')

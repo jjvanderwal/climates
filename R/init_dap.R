@@ -10,7 +10,9 @@
 #' @return ncdf4_init a named list of an ncdf4 object and a temperature conversion function.
 #' @export
 #' @examples
+#' \dontrun{
 #' Soon!
+#' }
 #' 
 init_dap<-function(OPeNDAP_URI,tmax_var,tmin_var,prcp_var,tave_var)
 {

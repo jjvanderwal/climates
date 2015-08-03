@@ -13,7 +13,9 @@
 #' @return A named list of including fileNames, x_vals, and y_vals for the NetCDF files that have been initiated.
 #' @export
 #' @examples
+#' \dontrun{
 #' Soon!
+#' }
 #' 
 initialize_NetCDF<-function(ncdf4_handle, thresholds, start=FALSE, end=FALSE, tmax_var=FALSE, prcp_var=FALSE, x_vals, y_vals, periods=list(), t_units=FALSE, p_units=FALSE){
   # Create shell of a netCDF file.

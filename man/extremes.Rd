@@ -45,6 +45,7 @@ If "month" is specified for \code{period}, 12 columns of data are expected,
 if "week" is specified, 52 columns are expected.
 }
 \examples{
+\dontrun{
 # Need to fill in to match bioclim example
 
 ##---- Should be DIRECTLY executable !! ----
@@ -121,6 +122,7 @@ function(tmin = NULL, tmax = NULL, prec = NULL, tmean = NULL, period = "month",t
 	colnames(out) = c("Warmest","Coldest","Wettest","Driest")
 	return(out)
   }
+}
 }
 \author{
 Patrick D. Lorch \email{plorch@kent.edu}
