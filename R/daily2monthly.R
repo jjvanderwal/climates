@@ -14,6 +14,7 @@
 #' @return The data converted to monthly resolution.
 #' @author David Blodgett \email{dblodgett@@usgs.gov}
 #' @importFrom zoo zoo as.yearmon fortify.zoo
+#' @importFrom chron chron
 #' @export
 #' @examples
 #' 

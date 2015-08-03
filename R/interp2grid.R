@@ -32,6 +32,7 @@
 #' @return Returns a matrix of the originating class.
 #' @author Jeremy VanDerWal \email{jjvanderwal@@gmail.com}
 #' @seealso \code{\link{interp2pnt}}
+#' @importFrom SDMTools raster.from.asc as.asc asc.from.sp asc.from.raster getXYcoords sp.from.asc
 #' @export
 #' @examples
 #' \dontrun{

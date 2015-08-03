@@ -6,8 +6,8 @@ Date: 2014-03-04
 Author: Jeremy VanDerWal, Linda Beaumont, Nicholas Zimmerman, Patrick Lorch, David Blodgett
 Maintainer: Jeremy VanDerWal <jjvanderwal@gmail.com>
 Suggests: ncdf, ncdf4, clim.pact, testthat
-Imports: climdex.pcic, sp, chron, rgdal, zoo
-Depends: chron, PCICt, raster, SDMTools
+Imports: climdex.pcic, sp, chron, rgdal, zoo, PCICt, SDMTools, chron
+Depends: raster
 Description: Methods for working with, downscaling climate, recreating bioclim variables, extracting extreme event information, etc.
 License: GPL version 2 or newer
 LazyLoad: yes
