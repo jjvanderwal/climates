@@ -32,7 +32,8 @@
 #' 
 #' \dontrun{
 #' data(daily_indices2geotiff_example, package='climates')
-#' fileNames<-daily_indices2geotiff(tmax_data, tmin_data, prcp_data, tave_data, thresholds, coords_master, prj, year,time_PCICt)
+#' fileNames<-daily_indices2geotiff(tmax_data, tmin_data, prcp_data, 
+#' tave_data, thresholds, coords_master, prj, year,time_PCICt)
 #' }
 #' 
 daily_indices2geotiff<-function(tmax_data,tmin_data,prcp_data,tave_data,thresholds,coords_master,prj,year,time_PCICt)

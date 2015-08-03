@@ -34,7 +34,8 @@
 #' 
 #' \dontrun{
 #' data(daily_indices_example, package='climates')
-#' output<-daily_indices(tmin=tmin_data, tmax=tmax_data, prec=prcp_data, tmean=tave_data, thresholds,time_PCICt)
+#' output<-daily_indices(tmin=tmin_data, tmax=tmax_data, prec=prcp_data, 
+#' tmean=tave_data, thresholds,time_PCICt)
 #' }
 #' 
 daily_indices=function (tmin = NULL, tmax = NULL, prec = NULL, tmean = NULL, thresholds=NULL, time_PCICt=NULL) 

@@ -1,12 +1,8 @@
-#need a function to create monthy averages given a set of years
-#give it the nc file from retrieve.nc, min year and max year
-
-
-#' Extract Monthly Longterm Climate Averages
+#' @title Extract Monthly Longterm Climate Averages
 #' 
-#'  ~~ A concise (1-5 lines) description of what the function does. ~~
+#' @description need a function to create monthy averages given a set of years
 #' 
-#'  ~~ If necessary, more details than the description above ~~
+#' @details give it the nc file from retrieve.nc, min year and max year
 #' 
 #' @param nc  ~~Describe \code{nc} here~~
 #' @param min.year  ~~Describe \code{min.year} here~~
@@ -27,7 +23,9 @@
 #' ## The function is currently defined as
 #' function(nc,min.year,max.year) {
 #' 	#ensure nc1 & nc2 are from retrieve.nc
-#' 	if (all(c('dat','tim','yy','mm', 'lat', 'lon') %in% names(nc))==FALSE) stop('nc must have objects named dat, lat, lon, tim, yy and mm as from retrieve.nc of clim.pact package')
+#' 	if (all(c('dat','tim','yy','mm', 'lat', 'lon') %in% names(nc))==FALSE) 
+#'   stop('nc must have objects named dat, lat, lon, tim, yy and mm as from 
+#'   retrieve.nc of clim.pact package')
 #' 	#do the work
 #' 	#track lat, long and time
 #' 	lat = nc$lat

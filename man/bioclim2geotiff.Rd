@@ -41,7 +41,8 @@ in the working directory.
 \examples{
 \dontrun{
 data(bioclim2geotiff_example, package='climates')
-fileNames<-bioclim2geotiff(tmax_data,tmin_data,prcp_data,tave_data,bioclims, coords_master, prj, year)
+fileNames<-bioclim2geotiff(tmax_data,tmin_data,prcp_data,tave_data,
+bioclims, coords_master, prj, year)
 }
 }
 \author{
