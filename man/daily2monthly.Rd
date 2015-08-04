@@ -28,8 +28,10 @@ This is a convenience function to help use daily data with theBioClim
 utility.
 }
 \examples{
+\dontrun{
 data(daily2monthly_example, package='climates')
 tmax_data<-daily2monthly(tmax_data, time_indices, origin, cells)
+}
 }
 \author{
 David Blodgett \email{dblodgett@usgs.gov}

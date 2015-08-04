@@ -93,7 +93,9 @@ structuring of outputs, we decided to present a modified copy of that
 function here. Indeed, much of this helpfile comes from \code{retrieve.nc}.
 }
 \examples{
-#need to fill in
+\dontrun{
+ #need to fill in
+ }
 }
 \author{
 Jeremy VanDerWal \email{jjvanderwal@gmail.com}

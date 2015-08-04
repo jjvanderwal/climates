@@ -30,7 +30,9 @@ months or years}
 difference of the future or past climate relative to the current.
 }
 \examples{
-##need to fill in
+\dontrun{
+ ##need to fill in
+ }
 }
 \author{
 Jeremy VanDerWal \email{jjvanderwal@gmail.com}

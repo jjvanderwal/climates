@@ -22,6 +22,7 @@ extend.global.data(nc)
 ~~further notes~~
 }
 \examples{
+\dontrun{
 ##---- Should be DIRECTLY executable !! ----
 ##-- ==>  Define data, use random,
 ##--	or do  help(data=index)  for the standard data sets.
@@ -53,6 +54,7 @@ function(nc) {
 	#return the extended outa
 	return(list(dat=out,lon=nc$lon,lat=nc$lat,tim=nc$tim))
   }
+}
 }
 \author{
 ~~who you are~~

@@ -22,6 +22,7 @@ nc2dataframe(nc)
 ~~further notes~~
 }
 \examples{
+\dontrun{
 ##---- Should be DIRECTLY executable !! ----
 ##-- ==>  Define data, use random,
 ##--	or do  help(data=index)  for the standard data sets.
@@ -34,6 +35,7 @@ function (nc) {
 	out = expand.grid(lon = nc$lon,lat = nc$lat)
 	for (tim in nc$tim) out[[paste('tim.',tim,sep='')]] = as.vector(nc$dat[tim,,])
 	return(out)
+  }
   }
 }
 \author{

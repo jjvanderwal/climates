@@ -7,7 +7,9 @@
 #' @return A named list with time_units and the time_dim
 #' @export
 #' @examples
+#' \dontrun{
 #' Soon!
+#' }
 #' 
 get_time_dim<-function(ncdf4_handle)
 {

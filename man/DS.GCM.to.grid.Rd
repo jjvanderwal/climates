@@ -32,6 +32,7 @@ Downscale Global GCM Models to a Regular Grid
 %% ~~further notes~~
 }
 \examples{
+\dontrun{
 ##---- Should be DIRECTLY executable !! ----
 ##-- ==>  Define data, use random,
 ##--	or do  help(data=index)  for the standard data sets.
@@ -48,6 +49,7 @@ function(nc,cellsize=0.2,type=2) {
 	for (ii in 1:length(nc$tim)) { out[ii,,] = interp2grid(nc$dat[ii,,],lon,lat,nc$lon,nc$lat,type=type) }
 	return(list(dat=out,lon=lon,lat=lat,tim=nc$tim))
   }
+}
 }
 \author{
 %% ~~who you are~~

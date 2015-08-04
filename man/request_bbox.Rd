@@ -21,6 +21,8 @@ This function takes an open ncdf4 data source, a representative variable and a b
 It returns a set of indices in the source dataset for the bounding box.
 }
 \examples{
+\dontrun{
 Soon!
+}
 }
 

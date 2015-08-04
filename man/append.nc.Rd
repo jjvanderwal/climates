@@ -24,6 +24,7 @@ append.nc(nc1, nc2)
 ~~further notes~~
 }
 \examples{
+\dontrun{
 ##---- Should be DIRECTLY executable !! ----
 ##-- ==>  Define data, use random,
 ##--	or do  help(data=index)  for the standard data sets.
@@ -49,6 +50,7 @@ function(nc1,nc2) {
 	#return the data
 	return(out)
   }
+}
 }
 \author{
 ~~who you are~~

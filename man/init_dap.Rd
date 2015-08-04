@@ -23,6 +23,8 @@ This function takes an OPeNDAP web service uri and a list of variables of intere
 It returns a named list containing the ncdf4 object's handle, and a temperature conversion function.
 }
 \examples{
+\dontrun{
 Soon!
+}
 }
 

@@ -69,7 +69,9 @@
 #' R package version 2.2-41. \url{http://CRAN.R-project.org/package=clim.pact}
 #' @export
 #' @examples
+#' \dontrun{
 #'  #need to fill in 
+#'  }
 read.nc <- function (filename = file.path("data", "air.mon.mean.nc"), v.nam = "AUTO", 
     l.scale = FALSE, greenwich = TRUE, silent = FALSE, x.nam = "lon", 
     y.nam = "lat", z.nam = "lev", t.nam = "tim", x.rng = NULL, 

@@ -18,7 +18,7 @@
 #' @keywords ~kwd1 ~kwd2
 #' @export
 #' @examples
-#' 
+#' \dontrun{
 #' ##---- Should be DIRECTLY executable !! ----
 #' ##-- ==>  Define data, use random,
 #' ##--	or do  help(data=index)  for the standard data sets.
@@ -44,7 +44,7 @@
 #' 	#return the data
 #' 	return(out)
 #'   }
-#' 
+#' }
 append.nc = function(nc1,nc2) {
 	#ensure nc1 & nc2 are from retrieve.nc
 	if (all(c('dat','tim','yy','mm','dd', 'lat', 'lon') %in% names(nc1))==FALSE) stop('nc1 must have objects named dat, lat, lon, tim, yy, mm and dd as from retrieve.nc of clim.pact package')

@@ -45,8 +45,10 @@ This function wraps the daily_indices function. It writes data to a geotiff
 file in the working directory.
 }
 \examples{
+\dontrun{
 data(daily_indices2geotiff_example, package='climates')
 fileNames<-daily_indices2geotiff(tmax_data, tmin_data, prcp_data, tave_data, thresholds, coords_master, prj, year,time_PCICt)
+}
 }
 \author{
 David Blodgett \email{dblodgett@usgs.gov}

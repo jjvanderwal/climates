@@ -19,7 +19,9 @@
 #' @return A named list of data according to inputs.
 #' @export
 #' @examples
+#' \dontrun{
 #' Soon!
+#' }
 #' 
 get_dap_data<-function(ncdf4_handle,x1,y1,x2,y2,t_ind1,t_ind2,tmax_var,tmin_var,prcp_var,tave_var=NULL,temp_unit_func=NULL, fill_nas=FALSE)
 {

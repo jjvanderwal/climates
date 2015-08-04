@@ -46,6 +46,8 @@ to interpolate to from raster objects of class 'asc' (adehabitat package),
 'RasterLayer' (raster package) or 'SpatialGridDataFrame' (sp package).
 }
 \examples{
+\dontrun{
+
 #create some data
 tx = seq(0,3,0.1)
 ty = seq(0,3,0.1)
@@ -66,6 +68,7 @@ bicubic3 = interp2grid(tmat,tx,ty,type=3)
 	image(bicubic2,main='bicubic2',zlim=c(0,16),col=heat.colors(100))
 	image(bicubic3,main='bicubic3',zlim=c(0,16),col=heat.colors(100))
 #dev.off()
+}
 }
 \author{
 Jeremy VanDerWal \email{jjvanderwal@gmail.com}

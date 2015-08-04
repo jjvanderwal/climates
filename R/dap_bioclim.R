@@ -15,7 +15,9 @@
 #' @return A list of filenames that have been written to disk.
 #' @export
 #' @examples
+#' \dontrun{
 #' Soon!
+#' }
 #' 
 dap_bioclim<-function(start,end,bbox_in,bioclims,OPeNDAP_URI,tmax_var,tmin_var,tave_var,prcp_var)
 {
