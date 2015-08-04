@@ -6,7 +6,7 @@
 
 sudo: true
 
-language: r
+language: c
 
 env:
    global:
@@ -18,8 +18,24 @@ env:
      - NOT_CRAN="true"
 
 before_install:
+  - sudo apt-get update
+  - sudo apt-get -y install netcdf-bin libproj-dev libgdal1-dev
   - curl -OL http://raw.github.com/craigcitro/r-travis/master/scripts/travis-tool.sh
   - chmod 755 ./travis-tool.sh
+  - ./travis-tool.sh bootstrap
+  - ./travis-tool.sh install_r devtools
+  - ./travis-tool.sh install_r testthat
+  - ./travis-tool.sh install_r sp
+  - ./travis-tool.sh install_r rgdal
+  - ./travis-tool.sh install_r raster
+  - ./travis-tool.sh install_r chron
+  - ./travis-tool.sh install_r zoo
+  - ./travis-tool.sh install_r PCICt
+  - ./travis-tool.sh install_r SDMTools
+  - ./travis-tool.sh install_r climdex.pcic
+  - ./travis-tool.sh install_r ncdf
+  - ./travis-tool.sh install_r ncdf4
+  # - ./travis-tool.sh install_r clim.pact
   
 r_github_packages:
  - jimhester/covr
