@@ -1,12 +1,9 @@
-#define a function to append data of two ncdf files from retrieve.nc or at least have the tim,yy,mm,dd,
-#we must assume that units, extents, variable, etc. are all the same
-
-
 #' Append Temporally Disjunct NCDF data
 #' 
-#'  ~~ A concise (1-5 lines) description of what the function does. ~~
+#'  define a function to append data of two ncdf files from retrieve.nc or at 
+#'  least have the tim,yy,mm,dd,
 #' 
-#'  ~~ If necessary, more details than the description above ~~
+#'  we must assume that units, extents, variable, etc. are all the same
 #' 
 #' @param nc1  ~~Describe \code{nc1} here~~
 #' @param nc2  ~~Describe \code{nc2} here~~
@@ -26,13 +23,19 @@
 #' ## The function is currently defined as
 #' function(nc1,nc2) {
 #' 	#ensure nc1 & nc2 are from retrieve.nc
-#' 	if (all(c('dat','tim','yy','mm','dd', 'lat', 'lon') %in% names(nc1))==FALSE) stop('nc1 must have objects named dat, lat, lon, tim, yy, mm and dd as from retrieve.nc of clim.pact package')
-#' 	if (all(c('dat','tim','yy','mm','dd', 'lat', 'lon') %in% names(nc2))==FALSE) stop('nc2 must have objects named dat, lat, lon, tim, yy, mm and dd as from retrieve.nc of clim.pact package')
+#' 	if (all(c('dat','tim','yy','mm','dd', 'lat', 'lon') %in% names(nc1))==FALSE) 
+#'   stop('nc1 must have objects named dat, lat, lon, tim, yy, mm and dd as from 
+#'   retrieve.nc of clim.pact package')
+#' 	if (all(c('dat','tim','yy','mm','dd', 'lat', 'lon') %in% names(nc2))==FALSE) 
+#'   stop('nc2 must have objects named dat, lat, lon, tim, yy, mm and dd as from 
+#'   retrieve.nc of clim.pact package')
 #' 	#do the work
 #' 	out = nc1 #copy nc1
-#' 	out$dat = array(NA,dim=c(dim(nc1$dat)[1]+dim(nc2$dat)[1],dim(nc1$dat)[2],dim(nc1$dat)[3]))#redim dat
+#' 	out$dat = array(NA,dim=c(dim(nc1$dat)[1]+dim(nc2$dat)[1],dim(nc1$dat)[2],
+#'   dim(nc1$dat)[3]))#redim dat
 #' 	out$dat[1:dim(nc1$dat)[1],,] = nc1$dat #add dat from nc1
-#' 	out$dat[(dim(nc1$dat)[1]+1):(dim(nc1$dat)[1]+dim(nc2$dat)[1]),,] = nc2$dat #add dat from nc2
+#' 	out$dat[(dim(nc1$dat)[1]+1):(dim(nc1$dat)[1]+dim(nc2$dat)[1]),,] = nc2$dat 
+#'   #add dat from nc2
 #' 	#append the time information
 #' 	out$tim = c(nc1$tim,nc2$tim)
 #' 	out$yy = c(nc1$yy,nc2$yy)

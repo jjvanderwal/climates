@@ -15,6 +15,8 @@
 #' @param NetCDF_output: Set to TRUE if NetCDF files are desired as output, otherwise will be geotiff.
 #' @param Cells that are NA in only some time steps will be filled with the average of their neighbors.
 #' @return A list of filenames that have been written to disk.
+#' @author David Blodgett \email{dblodgett@@usgs.gov}
+#' @importFrom PCICt as.PCICt
 #' @export
 #' @examples
 #'\dontrun{
@@ -42,7 +44,15 @@
 #'}
 dap_daily_stats<-function(start,end,bbox_in,thresholds,OPeNDAP_URI,tmax_var,tmin_var,tave_var,prcp_var,NetCDF_output=FALSE, fill_nas=FALSE)
 {
-  
+  if(!require("ncdf4")){
+    print("trying to install ncdf4")
+    install.packages("ncdf4")
+    if(require(ncdf4)){
+      print("ncdf4 installed and loaded")
+    } else {
+      stop("could not install ncdf4")
+    }
+  }
   te<-init_dap(OPeNDAP_URI,tmax_var,tmin_var,prcp_var, tave_var)
   ncdf4_handle<-te$ncdf4_handle; temp_unit_func<-te$temp_unit_func
   

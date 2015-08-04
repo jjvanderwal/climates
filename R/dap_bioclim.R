@@ -21,6 +21,15 @@
 #' 
 dap_bioclim<-function(start,end,bbox_in,bioclims,OPeNDAP_URI,tmax_var,tmin_var,tave_var,prcp_var)
 {
+  if(!require("ncdf4")){
+    print("trying to install ncdf4")
+    install.packages("ncdf4")
+    if(require(ncdf4)){
+      print("ncdf4 installed and loaded")
+    } else {
+      stop("could not install ncdf4")
+    }
+  }
   #Check if Bioclims in allowable set
   valid_bioclims<-c(1:19)
   if (any(!bioclims %in% valid_bioclims)) stop("Invalid Bioclim ids were submitted.")

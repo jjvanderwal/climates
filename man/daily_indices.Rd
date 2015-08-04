@@ -46,7 +46,8 @@ scalability to large gridded domains.
 \examples{
 \dontrun{
 data(daily_indices_example, package='climates')
-output<-daily_indices(tmin=tmin_data, tmax=tmax_data, prec=prcp_data, tmean=tave_data, thresholds,time_PCICt)
+output<-daily_indices(tmin=tmin_data, tmax=tmax_data, prec=prcp_data,
+tmean=tave_data, thresholds,time_PCICt)
 }
 }
 \author{

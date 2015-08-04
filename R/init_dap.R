@@ -16,6 +16,15 @@
 #' 
 init_dap<-function(OPeNDAP_URI,tmax_var,tmin_var,prcp_var,tave_var)
 {
+  if(!require("ncdf4")){
+    print("trying to install ncdf4")
+    install.packages("ncdf4")
+    if(require(ncdf4)){
+      print("ncdf4 installed and loaded")
+    } else {
+      stop("could not install ncdf4")
+    }
+  }
   tryCatch(ncdf4_handle <- nc_open(OPeNDAP_URI), error = function(e) 
   {
     cat("An error was encountered trying to open the OPeNDAP resource."); print(e)

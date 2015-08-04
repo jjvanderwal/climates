@@ -21,12 +21,15 @@
 #' @param year A year to use in labeling the output file.
 #' @return A character vector of the files that were created.
 #' @author David Blodgett \email{dblodgett@@usgs.gov}
+#' @importFrom rgdal writeGDAL
+#' @importFrom sp SpatialPixelsDataFrame SpatialPoints
 #' @export
 #' @examples
 #' 
 #' \dontrun{
 #' data(bioclim2geotiff_example, package='climates')
-#' fileNames<-bioclim2geotiff(tmax_data,tmin_data,prcp_data,tave_data,bioclims, coords_master, prj, year)
+#' fileNames<-bioclim2geotiff(tmax_data,tmin_data,prcp_data,tave_data,
+#' bioclims, coords_master, prj, year)
 #' }
 #' 
 bioclim2geotiff<-function(tmax_data,tmin_data,prcp_data,tave_data,bioclims, coords_master, prj, year)

@@ -17,10 +17,10 @@ extract.monthly.averages(nc, min.year, max.year)
 ...
 }
 \description{
-~~ A concise (1-5 lines) description of what the function does. ~~
+need a function to create monthy averages given a set of years
 }
 \details{
-~~ If necessary, more details than the description above ~~
+give it the nc file from retrieve.nc, min year and max year
 }
 \note{
 ~~further notes~~
@@ -34,7 +34,9 @@ extract.monthly.averages(nc, min.year, max.year)
 ## The function is currently defined as
 function(nc,min.year,max.year) {
 	#ensure nc1 & nc2 are from retrieve.nc
-	if (all(c('dat','tim','yy','mm', 'lat', 'lon') \%in\% names(nc))==FALSE) stop('nc must have objects named dat, lat, lon, tim, yy and mm as from retrieve.nc of clim.pact package')
+	if (all(c('dat','tim','yy','mm', 'lat', 'lon') \%in\% names(nc))==FALSE)
+  stop('nc must have objects named dat, lat, lon, tim, yy and mm as from
+  retrieve.nc of clim.pact package')
 	#do the work
 	#track lat, long and time
 	lat = nc$lat

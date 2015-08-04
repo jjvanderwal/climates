@@ -25,6 +25,15 @@
 #' 
 get_dap_data<-function(ncdf4_handle,x1,y1,x2,y2,t_ind1,t_ind2,tmax_var,tmin_var,prcp_var,tave_var=NULL,temp_unit_func=NULL, fill_nas=FALSE)
 {
+  if(!require("ncdf4")){
+    print("trying to install ncdf4")
+    install.packages("ncdf4")
+    if(require(ncdf4)){
+      print("ncdf4 installed and loaded")
+    } else {
+      stop("could not install ncdf4")
+    }
+  }
   #Can optionally pass in a function that will convert temperature on the fly.
   if (!is.null(temp_unit_func)) temp_unit_func<-function(t) {t}
   # Go one timestep at a time if data is daily and array is larger than ~10MB/year

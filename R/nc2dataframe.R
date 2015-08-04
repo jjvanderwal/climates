@@ -1,12 +1,8 @@
-#convert the anomoly work to a dataframe with xyz where the z columns are the different time values
-#input is a object from append.nc or extract.monthly.averages or retrieve.nc
-
-
 #' Convert Objects of Class NC to a Data.frame
 #' 
-#'  ~~ A concise (1-5 lines) description of what the function does. ~~
+#' convert the anomoly work to a dataframe with xyz where the z columns are the different time values
 #' 
-#'  ~~ If necessary, more details than the description above ~~
+#' input is a object from append.nc or extract.monthly.averages or retrieve.nc
 #' 
 #' @param nc  ~~Describe \code{nc} here~~
 #' @return ...
@@ -25,7 +21,9 @@
 #' ## The function is currently defined as
 #' function (nc) {
 #' 	#ensure nc is from retrieve.nc or similar
-#' 	if (all(c('dat','tim','lat', 'lon') %in% names(nc))==FALSE) stop('nc must have objects named dat, lat, lon and tim as from retrieve.nc of clim.pact package, append.nc or extract.monthly.averages')
+#' 	if (all(c('dat','tim','lat', 'lon') %in% names(nc))==FALSE) 
+#'   stop('nc must have objects named dat, lat, lon and tim as from 
+#'   retrieve.nc of clim.pact package, append.nc or extract.monthly.averages')
 #' 	#do the work
 #' 	out = expand.grid(lon = nc$lon,lat = nc$lat)
 #' 	for (tim in nc$tim) out[[paste('tim.',tim,sep='')]] = as.vector(nc$dat[tim,,])

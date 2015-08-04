@@ -33,6 +33,7 @@
 #' \code{xout} and \code{yout}.
 #' @author Jeremy VanDerWal \email{jjvanderwal@@gmail.com}
 #' @seealso \code{\link{interp2grid}}
+#' @importFrom SDMTools getXYcoords
 #' @export
 #' @examples
 #' \dontrun{
