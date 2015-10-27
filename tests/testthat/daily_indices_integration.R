@@ -1,10 +1,10 @@
 library(climates)
+library(PCICt) # Not sure why this doesn't load by default
 library(testthat)
 test_that("derivative portal thresholds work with bcca data and netcdf output", { 
   start <- "2098"
   end <- "2099"
   bbox_in<-c(-88,42,-89,43)
-#   bbox_in<-c(-67.06,52.81,-124.6,25.18)
   thresholds=list(days_tmax_abv_thresh=c(32.2222,35,37.7778),
                   days_tmin_blw_thresh=c(-17.7778,-12.2222,0),
                   days_prcp_abv_thresh=c(25.4,50.8,76.2,101.6),
@@ -15,7 +15,6 @@ test_that("derivative portal thresholds work with bcca data and netcdf output", 
                   cooling_degree_day_thresh=c(18.3333),
                   growing_season_lngth_thresh=c(0))
   OPeNDAP_URI<-"http://cida.usgs.gov/thredds/dodsC/cmip5_bcca/future"
-#   OPeNDAP_URI<-'http://igsarmewwsdlb2.gs.doi.net:8080/thredds/dodsC/striped/bcca/bcca/cmip5_out/ncmls/unions/BCCA_0.125deg.rcp.ncml'
   tmax_var  <- "BCCA_0-125deg_tasmax_day_ACCESS1-0_rcp45_r1i1p1"
   tmin_var <- "BCCA_0-125deg_tasmin_day_ACCESS1-0_rcp45_r1i1p1"
   prcp_var <- "BCCA_0-125deg_pr_day_ACCESS1-0_rcp45_r1i1p1"
@@ -26,21 +25,15 @@ test_that("derivative portal thresholds work with bcca data and netcdf output", 
   expect_that("growing_degree_day.nc" %in% fileNames, is_true())
 })
 
-library(dapClimates)
-library(climates)
-library(testthat)
-library(ncdf4)
 test_that("Degree Days Calculations", { 
   start <- "2098"
   end <- "2099"
   bbox_in<-c(-87,42,-89,43)
-  #   bbox_in<-c(-67.06,52.81,-124.6,25.18)
   thresholds=list(growing_degree_day_thresh=c(15.5556),
                   heating_degree_day_thresh=c(18.3333),
                   cooling_degree_day_thresh=c(18.3333),
                   growing_season_lngth_thresh=c(0))
   OPeNDAP_URI<-"http://cida.usgs.gov/thredds/dodsC/cmip5_bcca/future"
-#   OPeNDAP_URI<-'http://igsarmewwsdlb2.gs.doi.net:8080/thredds/dodsC/striped/bcca/bcca/cmip5_out/ncmls/unions/BCCA_0.125deg.rcp.ncml'
   tmax_var  <- "BCCA_0-125deg_tasmax_day_ACCESS1-0_rcp45_r1i1p1"
   tmin_var <- "BCCA_0-125deg_tasmin_day_ACCESS1-0_rcp45_r1i1p1"
   prcp_var <- "BCCA_0-125deg_pr_day_ACCESS1-0_rcp45_r1i1p1"

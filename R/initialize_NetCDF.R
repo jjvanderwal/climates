@@ -87,13 +87,13 @@ initialize_NetCDF<-function(ncdf4_handle, thresholds, start=FALSE, end=FALSE, tm
       stop('This should not have happened. A threshold id that should not exist snuck in somehow.') }
     threshVar<-ncvar_def('threshold',threshVarUnits,threshDim,prec='float')
     # Create An Actual Data Variable
-    dataVar<-ncvar_def(varName,'days',list(lonDim,latDim,threshDim,timeDim),-1,prec='integer')
+    dataVar<-ncvar_def(varName,'days',list(lonDim,latDim,threshDim,timeDim),-999999,prec='integer')
     # Create file
     ncdf_handle<-nc_create(fileName,list(timeBoundsVar,threshVar,dataVar))
     # Add Attributes
     t<-ncatt_put(ncdf_handle,'threshold','positive','up',prec='text')
     t<-ncatt_put(ncdf_handle,'time','climatology','time_bounds',prec='text')
-    t<-ncatt_put(ncdf_handle,varName,'missing_value','-1',prec='integer')
+    t<-ncatt_put(ncdf_handle,varName,'missing_value','-999999',prec='integer')
     t<-ncatt_put(ncdf_handle,varName,'coordinates','time, threshold, lat, lon',prec='text')
     t<-ncatt_put(ncdf_handle,'threshold','standard_name',threshVarStandName,prec='text')
     t<-ncatt_put(ncdf_handle,'lat','standard_name','latitude',prec='text')
