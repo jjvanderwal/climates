@@ -1,7 +1,18 @@
 Climates
-===========
+========
 
 Methods for working with, downscaling climate, recreating bioclim variables, extracting extreme event information, etc.
+
+Intallation until there's a better approach:
+```
+install.packages("devtools")
+library(devtools)
+install_github(“jjvanderwal/climates”)
+```
+
+Or checkout and clone the github repository open the RStudio project and build and reload the package. Once built, running the package tests throug RStudio's build tools is reccomended to ensure everything is working as expected.
+
+For usage, look through the tests in the tests/testthat folder. The integration tests are especially informative.
 
 Required Packages: sp, rgdal, chron, zoo, climdex.pcic, PCICt, raster
 The goal here is to use Imports explicitly, but while the package is in development, Depends will be used as a transition to Imports is made.
