@@ -1,6 +1,9 @@
 library(climates)
 library(PCICt) # Not sure why this doesn't load by default
 library(testthat)
+
+context("Test daily indices work with a number of remote datasets.")
+
 test_that("derivative portal thresholds work with bcca data and netcdf output", { 
   start <- "2098"
   end <- "2099"
@@ -23,6 +26,7 @@ test_that("derivative portal thresholds work with bcca data and netcdf output", 
   fileNames<-dap_daily_stats(start,end,bbox_in,thresholds,OPeNDAP_URI,tmax_var,tmin_var,tave_var,prcp_var, NetCDF_output)
   expect_that(length(fileNames), equals(9))
   expect_that("growing_degree_day.nc" %in% fileNames, is_true())
+  file.remove(fileNames)
 })
 
 test_that("Degree Days Calculations", { 
@@ -41,6 +45,7 @@ test_that("Degree Days Calculations", {
   NetCDF_output=TRUE
   fileNames<-dap_daily_stats(start,end,bbox_in,thresholds,OPeNDAP_URI,tmax_var,tmin_var,tave_var,prcp_var, NetCDF_output, fill_nas=TRUE)
   expect_that(length(fileNames), equals(4))
+  file.remove(fileNames)
 })
 
 test_that("derivative portal thresholds work with wicci data", { 
@@ -57,15 +62,14 @@ thresholds=list(days_tmax_abv_thresh=c(32.2222,35,37.7778),
                 cooling_degree_day_thresh=c(18.3333),
                 growing_season_lngth_thresh=c(0))
 OPeNDAP_URI<-"http://cida.usgs.gov/thredds/dodsC/wicci/cmip3/20c3m"
-tmax_var  <- "20c3m-cccma_cgcm3_1-tmax-01"
-tmin_var <- "20c3m-cccma_cgcm3_1-tmin-01"
-prcp_var <- "20c3m-cccma_cgcm3_1-prcp-01"
+tmax_var  <- "twentyc3m-cccma_cgcm3_1-tmax-01"
+tmin_var <- "twentyc3m-cccma_cgcm3_1-tmin-01"
+prcp_var <- "twentyc3m-cccma_cgcm3_1-prcp-01"
 tave_var <- NULL
 fileNames<-dap_daily_stats(start,end,bbox_in,thresholds,OPeNDAP_URI,tmax_var,tmin_var,tave_var,prcp_var)
-print(fileNames)
-print(length(fileNames))
 expect_that(length(fileNames), equals(18))
 expect_that("days_prcp_abv_50.8_C_1961.tif" %in% fileNames, is_true())
+file.remove(fileNames)
 })
 
 test_that("growing season length works with daymet data", { 
@@ -81,22 +85,24 @@ tave_var <- NULL
 fileNames<-dap_daily_stats(start,end,bbox_in,thresholds,OPeNDAP_URI,tmax_var,tmin_var,tave_var,prcp_var)
 expect_that(length(fileNames), equals(1))
 expect_that("growing_season_lngth_0_C_1980.tif" %in% fileNames, is_true())
+file.remove(fileNames)
 })
 
-test_that("Two statistics work with hayhoe dataset for two years", { 
+test_that("Two statistics work with gmo dataset for two years", { 
 start <- "1960"
 end <- "1961"
 bbox_in<-c(-90,41,-90.5,41.5)
 thresholds=list(days_tmax_abv_thresh=c(32.2222),
                 growing_season_lngth_thresh=c(0))
-OPeNDAP_URI<-"http://cida.usgs.gov/thredds/dodsC/dcp/conus"
-tmax_var  <- "ccsm-a1b-tmax-NAm-grid"
-tmin_var <- "ccsm-a1b-tmin-NAm-grid"
-prcp_var <- "ccsm-a1fi-pr-NAm-grid"
-tave_var <- NULL
+OPeNDAP_URI<-"http://cida.usgs.gov/thredds/dodsC/new_gmo"
+tmax_var  <- "tasmax"
+tmin_var <- "tasmin"
+prcp_var <- "pr"
+tave_var <- "tas"
 fileNames<-dap_daily_stats(start,end,bbox_in,thresholds,OPeNDAP_URI,tmax_var,tmin_var,tave_var,prcp_var)
 expect_that(length(fileNames), equals(4))
 expect_that("growing_season_lngth_0_C_1961.tif" %in% fileNames, is_true())
+file.remove(fileNames)
 })
 
 test_that("UofIMETDATA works with some statistics.", { 
@@ -114,6 +120,7 @@ tave_var <- NULL
 fileNames<-dap_daily_stats(start,end,bbox_in,thresholds,OPeNDAP_URI,tmax_var,tmin_var,tave_var,prcp_var)
 expect_that(length(fileNames), equals(10))
 expect_that("days_tmax_abv_32.2222_C_1991.tif" %in% fileNames, is_true())
+file.remove(fileNames)
 })
 
 test_that("derivative portal thresholds work with bcca data", { 
@@ -137,4 +144,5 @@ test_that("derivative portal thresholds work with bcca data", {
   fileNames<-dap_daily_stats(start,end,bbox_in,thresholds,OPeNDAP_URI,tmax_var,tmin_var,tave_var,prcp_var)
   expect_that(length(fileNames), equals(18))
   expect_that("days_prcp_abv_50.8_C_2090.tif" %in% fileNames, is_true())
+  file.remove(fileNames)
 })
